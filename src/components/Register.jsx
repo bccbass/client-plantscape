@@ -27,7 +27,7 @@ function Register() {
 
     const newUser = { ...form }
 
-    await fetch("http://localhost:5001/users/register", {
+    await fetch("http://localhost:4001/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
