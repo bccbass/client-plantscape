@@ -61,8 +61,8 @@ function Register() {
       <div class="footer">
         <Button type="submit" class="btn" block="true" size="lg">Register</Button>
       </div>
-    </ Form>      
-  )       
+    </ Form>
+  )
 }
 
 export default Register
