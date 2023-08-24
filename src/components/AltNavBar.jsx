@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <Link class="navbar-brand" href="#" to="/">
+        <Link class="navbar-brand" href="#" to="/login">
           <img src="/src/assets/anotherLogo.svg" alt="Plantscape Logo" width="30" height="24" class="d-inline-block align-text-top"/>
           Plantscape
         </Link>
@@ -14,8 +14,8 @@ const NavBar = () => {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <Link class="nav-link" href="#">Login</Link>
-            <Link class="nav-link" href="#">Register</Link>
+            <Link class="nav-link" href="#" to="/login">Login</Link>
+            <Link class="nav-link" href="#" to="/register">Register</Link>
           </div>
         </div>
       </div>
