@@ -31,7 +31,7 @@ return <>
                 <img src={querySelection.default_image.medium_url} class="card-img-top" alt="..."/>
                 <div class="card-body">
                     <h5 class="card-title">{querySelection.common_name}</h5>
-                    <div class="card-text"><p> Watering: {querySelection.watering}</p> <p>sunlight: {querySelection.sunlight.join(', ')}</p></div>
+                    <div class="card-text"><p> Watering: {querySelection.watering}</p> <p>sunlight: {querySelection.sunlight}</p></div>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
                 </div>
