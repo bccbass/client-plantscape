@@ -1,67 +1,101 @@
-import './Register.css'
 import './Login.css'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 function Register() {
-  const [firstName, setFirstName] = useState(null)
-  const [lastName, setLastName] = useState(null)
-  const [email, setEmail] = useState(null)
-  const [password, setPassword] = useState(null)
-  const [confirmPassword, setConfirmPassword] = useState(null)
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: ""
+  })
 
-  const handleInputChange = (e) => {
-    const {id, value} = e.target;
-    if (id === "firstName"){
-        setFirstName(value);
-    }
-    if (id === "lastName"){
-        setLastName(value);
-    }
-    if (id === "email"){
-        setEmail(value);
-    }
-    if (id === "password"){
-        setPassword(value);
-    }
-    if (id === "confirmPassword"){
-        setConfirmPassword(value);
-    }
+  const navigate = useNavigate()
+
+  // These methods will update the state properties
+  function updateForm(value) {
+    return setForm((prev) => {
+      return { ...prev, ...value }
+    })
   }
 
-  const handleSubmit = () => {
-    console.log(firstName, lastName, email, password, confirmPassword);
+  // This function will handle the registration submission
+  async function onSubmit(e) {
+    e.preventDefault()
+
+    const newUser = { ...form }
+
+    await fetch("http://localhost:5001/users/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newUser)
+    })
+    .catch(error => {
+      window.alert(error)
+      return
+    })
+
+    setForm({ firstName: "", lastName: "", email: "", password: "" })
+    navigate("/")
   }
 
   return (
-    <Form className="form">
-      <div className="form-body">
-        <div className="username">
-          <label className="form_label" for="firstName">First Name </label>
-          <input className="form_input" type="text" value={firstName} onChange = {(e) => handleInputChange(e)} id="firstName" placeholder="First Name"/>
+    <div>
+      <h3>New User Registration</h3>
+      <form onSubmit={onSubmit}>
+        <div className="form-group">
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            className="form-control"
+            id="firstName"
+            value={form.firstName}
+            onChange={(e) => updateForm({ firstName: e.target.value })}
+          />
         </div>
-        <div className="lastname">
-          <label className="form_label" for="lastName">Last Name </label>
-          <input  type="text" name="" id="lastName" value={lastName} className="form__input" onChange = {(e) => handleInputChange(e)} placeholder="Last Name"/>
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            className="form-control"
+            id="lastName"
+            value={form.lastName}
+            onChange={(e) => updateForm({ lastName: e.target.value })}
+          />
         </div>
-        <div className="email">
-          <label className="form_label" for="email">Email </label>
-          <input  type="email" id="email" className="form__input" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            className="form-control"
+            id="email"
+            value={form.email}
+            onChange={(e) => updateForm({ email: e.target.value })}
+          />
         </div>
-        <div className="password">
-          <label className="form_label" for="password">Password </label>
-          <input className="form_input" type="password"  id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            className="form-control"
+            id="password"
+            value={form.password}
+            onChange={(e) => updateForm({ password: e.target.value })}
+          />
         </div>
-        <div className="confirm-password">
-          <label className="form_label" for="confirmPassword">Confirm Password </label>
-          <input className="form_input" type="password" id="confirmPassword" value={confirmPassword} onChange = {(e) => handleInputChange(e)} placeholder="Confirm Password"/>
+        <div className="form-group">
+          <input
+            type="submit"
+            value="Register"
+            className="btn btn-primary"
+          />
         </div>
-      </div>
-      <div class="footer">
-        <Button type="submit" class="btn" block="true" size="lg">Register</Button>
-      </div>
-    </ Form>
+      </form>
+    </div>
   )
 }
 
