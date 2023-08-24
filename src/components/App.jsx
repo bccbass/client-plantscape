@@ -4,9 +4,11 @@ import NavBar from './NavBar.jsx'
 import Login from './Login.jsx'
 import Register from './Register.jsx'
 import AltNavBar from './AltNavBar.jsx'
-import { Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom'
 
 function App() {
+  const nav = useNavigate()
+
   return (
     <>
       <Routes>
