@@ -10,29 +10,13 @@ const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTk0NWYxZjU2NTU0
 const id = '64e945f1f56554636ddb13cf'
 
 
-const Home = ({  }) => {
-  // const [storedUser, setStoredUser] = useLocalStorage("TheUserID", "")  
-  const [tempUser, setTempUser] = useState({})
+const Home = ({ user }) => {
 
-  useEffect(async () => {
-    
-      const res = await fetch(`https://plantscapeapi.onrender.com/users/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-        }
-      )
-      const data = await res.json()
-      setTempUser(data)
-      console.log(data)
-    
-  }, [])
-
-  return tempUser && tempUser?.spaces ? (
+  return user && user?.spaces ? (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
       <Card.Body>
-        <Card.Title>Welcome {tempUser.firstName} {tempUser.lastName}</Card.Title>
+        <Card.Title>Welcome {user.firstName} {user.lastName}</Card.Title>
         <Card.Text>
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
@@ -40,7 +24,7 @@ const Home = ({  }) => {
       </Card.Body>
       <ListGroup className="list-of-spaces">
         <Card.Title>Spaces</Card.Title>
-        {tempUser.spaces.map((space, index) => (
+        {user.spaces.map((space, index) => (
           <ListGroup.Item>
             <Link key={index} to={`/spaces/${index}`}>
               {space.name}
@@ -69,7 +53,7 @@ const Home = ({  }) => {
 
       <ListGroup className="list-of-areas">
         <Card.Title>Areas</Card.Title>
-        {tempUser.spaces.flatMap((space, spaceIndex) =>
+        {user.spaces.flatMap((space, spaceIndex) =>
           space.areas.map((area, areaIndex) => ({
             spaceIndex,
             areaIndex,
@@ -87,7 +71,7 @@ const Home = ({  }) => {
 
       <ListGroup className="list-of-plants">
         <Card.Title>Plants</Card.Title>
-        {tempUser.plants.slice(0,3).map((plant, index) => (
+        {user.plants.slice(0,3).map((plant, index) => (
           <ListGroup.Item>
             <Link key={index} to={`/plants/${index}`}>
               {plant}

@@ -7,8 +7,6 @@ const retrieveToken = async (getter, setter, creds) => {
     body: JSON.stringify(creds),
 }).then(res => res.json())
   .then(data => setter({...data}))
-
-
     }
 
 
@@ -19,15 +17,21 @@ const retrieveToken = async (getter, setter, creds) => {
     await retrieveToken(getter, setter, creds)
     }
 
+
   const getUser = async (setter) => {
-        const user = JSON.parse(localStorage.user)
-        // console.log('USER:', user)
-        await fetch(`https://plantscapeapi.onrender.com/users/${user.id}`, {
-          headers: {
-          Authorization: `Bearer ${user.token}`,
-          },
-      }).then(res => res.json())
-        .then(data => setter({...data}))
+    const user = JSON.parse(localStorage.getItem('user'))
+    console.log(user)
+     const fetchUser = async () => {const res = await fetch(`https://plantscapeapi.onrender.com/users/${user.id}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+        }
+      )
+      const data = await res.json()
+      setter(data)
+      console.log(data)
+    }
+    fetchUser()
   }
 
 export { handleToken, retrieveToken, getUser}

@@ -2,10 +2,10 @@ import './Login.css'
 import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { handleToken, retrieveToken, getUser} from './loginfunctions.js'
+import {  retrieveToken, getUser} from './loginfunctions.js'
 import { redirect, useNavigate } from 'react-router-dom'
 
-function Login() {
+function Login({setUser}) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [token, setToken] = useState({})
@@ -17,16 +17,15 @@ function Login() {
   }
 
   function handleSubmit(event) {
-    console.log('submitted!')
     event.preventDefault()
-    handleToken(token, setToken, {email, password })
+    retrieveToken(token, setToken, {email, password })
   }
 
   useEffect(() => {
     if (token.id) {
       localStorage.setItem('user', JSON.stringify(token))
-      console.log(localStorage)
-      return navigate('/')
+      getUser(setUser)
+      navigate('/')
     }
   }, [token])
 
