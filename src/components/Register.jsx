@@ -40,7 +40,7 @@ function Register() {
     })
 
     setForm({ firstName: "", lastName: "", email: "", password: "" })
-    navigate("/")
+    navigate("/login")
   }
 
   return (
