@@ -3,6 +3,7 @@ import './App.css'
 import Home from './Home.jsx'
 import NavBar from './NavBar.jsx'
 import Login from './Login.jsx'
+import Register from './Register.jsx'
 import AltNavBar from './AltNavBar.jsx'
 import { Routes, Route } from 'react-router-dom'
 
@@ -13,6 +14,7 @@ const [user, setUser] = useState({})
       <Routes>
         <Route path="/" element={<><NavBar /><Home user={user}/></>}/>
         <Route path="/login" element={<><AltNavBar /><Login setUser={setUser}/></>} />
+        <Route path="/register" element={<><AltNavBar /><Register/></>} />
       </Routes>
     </>
   )
