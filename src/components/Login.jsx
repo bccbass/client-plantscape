@@ -40,7 +40,21 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button className="Button" block="true" size="lg" type="submit" disabled={!validateForm()}>
+        <Button className="Button" block="true" size="lg" type="submit" onClick={async e => {
+            try {const loginObj = {email, password}
+            await fetch('https://plantscapeapi.onrender.com/users/login', {
+                method: 'POST',
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(loginObj),
+            }).then(res => res.json())
+              .then(data => console.log(data))
+              // This should then redirect to users home page and maybe store id/token in session or a cookie
+            } catch (e) {
+              // This should flash an error message and redirect to Login page
+            }
+        }}>
           Login
         </Button>
       </Form>
