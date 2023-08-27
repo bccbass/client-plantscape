@@ -20,10 +20,10 @@ function Login({setUser}) {
   function handleSubmit(event) {
     event.preventDefault()
     retrieveToken(setToken, {email, password })
-    storeToken(token)
   }
 
   useEffect(() => {
+      storeToken(token)
       if (localStorage.getItem('user')){
       navigate('/')}
   }, [token])

@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 // import { useLocalStorage } from 'react-use';
 
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTk0NWYxZjU2NTU0NjM2ZGRiMTNjZiIsImlhdCI6MTY5MzAxMTExNCwiZXhwIjoxNjkzNjE1OTE0fQ.X99Sj20KABKKMZDE5rncL4oO17_JvqX6J3vV8RAiOL4'
-const id = '64e945f1f56554636ddb13cf'
-
 
 const Home = ({ user }) => {
 
