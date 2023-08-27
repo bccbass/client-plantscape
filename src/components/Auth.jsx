@@ -1,5 +1,6 @@
 import react, { useEffect, useContext, createContext } from "react";
 import Login from './Login.jsx';
+import Home from './Home.jsx'
 import { useNavigate } from 'react-router-dom';
 import { getUser } from './loginfunctions.js'
 
@@ -11,13 +12,13 @@ const Auth = ({user, setUser, children}) => {
     if (!localStorage.getItem('user')) {
         return navigate('/login')
     }
-    if (!user) {
+    if (!user.firstName) {
         getUser(setUser)
     }
     
 }, [])
 
-return <> { children  } </>
+return <>{ children }</>
 }
 
 export default Auth

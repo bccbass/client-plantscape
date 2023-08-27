@@ -1,7 +1,7 @@
 import react, { useState, createContext } from 'react'
 import './App.css'
 import Home from './Home.jsx'
-import NavBar from './NavBar.jsx'
+
 import Login from './Login.jsx'
 import Register from './Register.jsx'
 import AltNavBar from './AltNavBar.jsx'
@@ -14,11 +14,10 @@ const [user, setUser] = useState({})
   return (
     <>
       <Routes>
-        <Route path="/" element={<><NavBar /><Home user={user}/></>}/>
         <Route path="/login" element={<><AltNavBar /><Login setUser={setUser}/></>} />
         <Route path="/register" element={<><AltNavBar /><Register/></>} />
     
-        <Route path="/testingauth" element={< Auth user={user} setUser ={setUser}><Home user={user}/></Auth>} />
+        <Route path="/" element={< Auth user={user} setUser ={setUser}><Home user={user}/></Auth>} />
       </Routes>
     </>
   )

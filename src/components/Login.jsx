@@ -2,7 +2,7 @@ import './Login.css'
 import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import {  retrieveToken, getUser} from './loginfunctions.js'
+import {  retrieveToken, storeToken, getUser} from './loginfunctions.js'
 import { redirect, useNavigate } from 'react-router-dom'
 
 function Login({setUser}) {
@@ -18,15 +18,13 @@ function Login({setUser}) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    retrieveToken(token, setToken, {email, password })
+    retrieveToken(setToken, {email, password })
+    storeToken(token)
   }
 
   useEffect(() => {
-    if (token.id) {
-      localStorage.setItem('user', JSON.stringify(token))
-      getUser(setUser)
-      navigate('/')
-    }
+      if (localStorage.getItem('user')){
+      navigate('/')}
   }, [token])
 
   return (

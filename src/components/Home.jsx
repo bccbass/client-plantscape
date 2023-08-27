@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import NavBar from './NavBar.jsx'
 import { Link } from 'react-router-dom';
 // import { useLocalStorage } from 'react-use';
 
@@ -12,7 +13,9 @@ const id = '64e945f1f56554636ddb13cf'
 
 const Home = ({ user }) => {
 
-  return user && user?.spaces ? (
+  return <>
+    < NavBar />
+    {user && user?.spaces ? (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
       <Card.Body>
@@ -87,7 +90,8 @@ const Home = ({ user }) => {
     </Card>
   )
   :
-  <h1> Loading </h1>
+  <h1> Loading </h1>}
+  </>
 }
 
 export default Home
