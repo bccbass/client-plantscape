@@ -1,5 +1,18 @@
+const devAPI = import.meta.env.VITE_API_HOST + import.meta.env.VITE_PORT
+const prodAPI = import.meta.env.VITE_API_HOST
+
+const getAPIUrl = () => {
+  if (import.meta.env.DEV) {
+  return devAPI
+}  else {
+    return prodAPI}
+  }
+  
+const apiURL = getAPIUrl()
+
+
 const retrieveToken = async (setter, creds) => {
-    await fetch('https://plantscapeapi.onrender.com/users/login', {
+    await fetch(apiURL + '/users/login', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +41,7 @@ const storeToken = (token) => {
 
   const getUser = async (setter) => {
     const user = JSON.parse(localStorage.getItem('user'))
-     const fetchUser = async () => {const res = await fetch(`https://plantscapeapi.onrender.com/users/${user.id}`, {
+     const fetchUser = async () => {const res = await fetch(`${apiURL}/users/${user.id}`, {
         headers: {
           Authorization: `Bearer ${user.token}`
         }
@@ -40,4 +53,4 @@ const storeToken = (token) => {
     fetchUser()
   }
 
-export { storeToken, retrieveToken, getUser}
+export { storeToken, retrieveToken, getUser, apiURL }

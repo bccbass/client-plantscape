@@ -4,11 +4,8 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import NavBar from './NavBar.jsx'
 import { Link } from 'react-router-dom';
-// import { useLocalStorage } from 'react-use';
-
-
-
 const Home = ({ user }) => {
+  
 
   return <>
     < NavBar />

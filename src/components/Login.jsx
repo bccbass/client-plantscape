@@ -13,6 +13,7 @@ function Login({setUser}) {
   const navigate = useNavigate()
   let message = ''
 
+
   function validateForm() {
     return email.length > 0 && password.length > 0
   }

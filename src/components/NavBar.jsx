@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import LogoutButton from './LogoutButton.jsx'
+import logo from '../assets/anotherLogo.svg'
 
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link className="navbar-brand" href="#" to="/">
-          <img src="/src/assets/anotherLogo.svg" alt="Plantscape Logo" width="30" height="24" className="d-inline-block align-text-top"/>
+          <img src={logo} alt="Plantscape Logo" width="30" height="24" className="d-inline-block align-text-top"/>
           Plantscape
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import AltNavBar from './AltNavBar'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import { apiURL } from './loginfunctions.js'
 
 function Register() {
   const [form, setForm] = useState({
@@ -28,7 +29,7 @@ function Register() {
 
     const newUser = { ...form }
 
-    await fetch("https://plantscapeapi.onrender.com/users/register", {
+    await fetch(`${apiURL}/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
