@@ -14,8 +14,8 @@ const [user, setUser] = useState({})
   return (
     <>
       <Routes>
-        <Route path="/login" element={<><AltNavBar /><Login setUser={setUser}/></>} />
-        <Route path="/register" element={<><AltNavBar /><Register/></>} />
+        <Route path="/login" element={<><Login setUser={setUser}/></>} />
+        <Route path="/register" element={<><Register/></>} />
     
         <Route path="/" element={< Auth user={user} setUser ={setUser}><Home user={user}/></Auth>} />
       </Routes>

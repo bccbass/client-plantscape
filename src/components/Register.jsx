@@ -1,6 +1,7 @@
 import './Login.css'
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
+import AltNavBar from './AltNavBar'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
@@ -43,7 +44,8 @@ function Register() {
     navigate("/login")
   }
 
-  return (
+  return (<>
+    <AltNavBar />
     <div>
       <h3>New User Registration</h3>
       <form onSubmit={onSubmit}>
@@ -96,6 +98,7 @@ function Register() {
         </div>
       </form>
     </div>
+    </>
   )
 }
 

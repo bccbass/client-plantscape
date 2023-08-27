@@ -2,6 +2,7 @@ import './Login.css'
 import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import AltNavBar from './AltNavBar.jsx'
 import {  retrieveToken, storeToken, getUser} from './loginfunctions.js'
 import { redirect, useNavigate } from 'react-router-dom'
 
@@ -27,7 +28,8 @@ function Login({setUser}) {
       navigate('/')}
   }, [token])
 
-  return (
+  return (<>
+    <AltNavBar />
     <div className="Login">
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
@@ -53,6 +55,7 @@ function Login({setUser}) {
         </Button>
       </Form>
     </div>
+    </>
   );
 }
 
