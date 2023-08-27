@@ -2,7 +2,8 @@ import './Login.css'
 import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import {  retrieveToken, getUser} from './loginfunctions.js'
+import AltNavBar from './AltNavBar.jsx'
+import {  retrieveToken, storeToken, getUser} from './loginfunctions.js'
 import { redirect, useNavigate } from 'react-router-dom'
 
 function Login({setUser}) {
@@ -18,18 +19,17 @@ function Login({setUser}) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    retrieveToken(token, setToken, {email, password })
+    retrieveToken(setToken, {email, password })
+    storeToken(token)
   }
 
   useEffect(() => {
-    if (token.id) {
-      localStorage.setItem('user', JSON.stringify(token))
-      getUser(setUser)
-      navigate('/')
-    }
+      if (localStorage.getItem('user')){
+      navigate('/')}
   }, [token])
 
-  return (
+  return (<>
+    <AltNavBar />
     <div className="Login">
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
@@ -55,6 +55,7 @@ function Login({setUser}) {
         </Button>
       </Form>
     </div>
+    </>
   );
 }
 

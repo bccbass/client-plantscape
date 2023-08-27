@@ -1,4 +1,4 @@
-const retrieveToken = async (getter, setter, creds) => {
+const retrieveToken = async (setter, creds) => {
     await fetch('https://plantscapeapi.onrender.com/users/login', {
     method: 'POST',
     headers: {
@@ -6,9 +6,17 @@ const retrieveToken = async (getter, setter, creds) => {
     },
     body: JSON.stringify(creds),
 }).then(res => res.json())
-  .then(data => setter({...data}))
+  .then(data => {
+    const user = {...data}; 
+    if (user.id)
+      {setter(user)}})
     }
-
+  
+const storeToken = (token) => {
+  if (token.id) {
+    localStorage.setItem('user', JSON.stringify(token))
+  }
+}
 
 
 
@@ -34,4 +42,4 @@ const retrieveToken = async (getter, setter, creds) => {
     fetchUser()
   }
 
-export { handleToken, retrieveToken, getUser}
+export { storeToken, retrieveToken, getUser}
