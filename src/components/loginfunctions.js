@@ -28,7 +28,6 @@ const storeToken = (token) => {
 
   const getUser = async (setter) => {
     const user = JSON.parse(localStorage.getItem('user'))
-    console.log(user)
      const fetchUser = async () => {const res = await fetch(`https://plantscapeapi.onrender.com/users/${user.id}`, {
         headers: {
           Authorization: `Bearer ${user.token}`
@@ -37,7 +36,6 @@ const storeToken = (token) => {
       )
       const data = await res.json()
       setter(data)
-      console.log(data)
     }
     fetchUser()
   }
