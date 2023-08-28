@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router'
 import AltNavBar from './AltNavBar'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { apiURL } from './loginfunctions.js'
+import apiURL from './getAPI.js'
+
 
 function Register() {
   const [form, setForm] = useState({

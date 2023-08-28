@@ -1,14 +1,4 @@
-const devAPI = import.meta.env.VITE_API_HOST + import.meta.env.VITE_PORT
-const prodAPI = import.meta.env.VITE_API_HOST
-
-const getAPIUrl = () => {
-  if (import.meta.env.DEV) {
-  return devAPI
-}  else {
-    return prodAPI}
-  }
-  
-const apiURL = getAPIUrl()
+import apiURL from './getAPI.js'
 
 
 const retrieveToken = async (setter, creds) => {
@@ -53,4 +43,4 @@ const storeToken = (token) => {
     fetchUser()
   }
 
-export { storeToken, retrieveToken, getUser, apiURL }
+export { storeToken, retrieveToken, getUser }
