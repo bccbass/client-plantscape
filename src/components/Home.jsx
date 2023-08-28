@@ -15,21 +15,21 @@ const Home = ({ user }) => {
       <Card.Body>
         <Card.Title>Welcome {user.firstName} {user.lastName}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          This is the home component displaying previews of your spaces, areas, and plants.
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-of-spaces">
         <Card.Title>Spaces</Card.Title>
         {user.spaces.map((space, index) => (
           <ListGroup.Item>
-            <Link key={index} to={`/spaces/${index}`}>
+            <Link key={index} to={`/space/${index}`}>
               {space.name}
             </Link>
           </ListGroup.Item>
         ))}
       </ListGroup>
-      <Card.Link href="#">Add space</Card.Link>
+      <Card.Link href="#">Add a new space</Card.Link>
+      <Card.Link href="/space/all">All spaces</Card.Link>
 
       {/* <ListGroup className="list-of-areas">
         <Card.Title>Areas</Card.Title>
