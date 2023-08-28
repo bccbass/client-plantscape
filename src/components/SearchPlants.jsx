@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import apiURL from './getAPI.js'
 
 
 
@@ -9,7 +10,7 @@ const [querySelection, setQuerySelection] = useState()
 
 const queryPlants = async (query) => {
     // const result = await fetch(`${import.meta.env.VITE_API_HOST}/plants?q=${query}`)
-    const result = await fetch(`http://localhost:4001/plants?q=${query}`)
+    const result = await fetch(`${apiURL}/plants?q=${query}`)
     const parsedResult = await result.json()
     setSearchResults(parsedResult)
 } 
