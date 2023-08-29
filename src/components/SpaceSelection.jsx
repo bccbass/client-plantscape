@@ -4,8 +4,8 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 
-const SpaceSelection = ({user}) => {
-  console.log(user)
+const SpaceSelection = ({user}) => { // MAYBE SHOULD JUST BE PASSING ONLY USER.SPACES AND NOT THE WHOLE USER OBJECT
+  console.log(user) // REMEMBER TO REMOVE THIS LINE!
   return <>
     <NavBar />
     <h1>{user.firstName}'s Spaces</h1>
@@ -28,7 +28,7 @@ const SpaceSelection = ({user}) => {
           </ListGroup.Item>
         ))}
       </ListGroup>
-      <Link to="/space/new">Add a new space</Link>
+      <Link to={`/space/new`}>Add a new space</Link>
     </Card>
     )
     :
