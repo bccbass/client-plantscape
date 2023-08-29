@@ -11,13 +11,14 @@ import { Routes, Route } from 'react-router-dom'
 
 function App() {
 const [user, setUser] = useState({})
+const [plants, setPlants] = useState([])
   return (
     <>
       <Routes>
         <Route path="/login" element={<><Login setUser={setUser}/></>} />
         <Route path="/register" element={<><Register/></>} />
     
-        <Route path="/" element={< Auth user={user} setUser ={setUser}><Home user={user}/></Auth>} />
+        <Route path="/" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><Home user={user} plants={plants}/></Auth>} />
       </Routes>
     </>
   )
