@@ -39,7 +39,10 @@ const storeToken = (token) => {
         }
       )
       const data = await res.json()
-      setter(data)
+      if (!data.firstName){
+        setter(false)
+      }
+      await setter(data)
   }
 
   const getPlants = async (setter, plantIdsList) => {
@@ -55,8 +58,8 @@ const storeToken = (token) => {
         }
       )
       const data = await res.json()
-      if (data[0].id){
-      setter(data)}
+      if (await data[0].id) {
+          await setter(data)}
   }
 
   const fetchUserData = async (user, setUser, plants, setPlants) => {
@@ -65,7 +68,7 @@ const storeToken = (token) => {
       await getUser(setUser)
   }
   
-  if ( user.plants.length > 0){
+  if (await user.plants.length > 0){
       await getPlants(setPlants, user.plants )
   }
   }

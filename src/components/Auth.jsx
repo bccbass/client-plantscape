@@ -26,14 +26,15 @@ import { getUser, getPlants, fetchUserData } from './loginfunctions.js'
 // }, [])
 const Auth = ({user, setUser, plants, setPlants, children}) => {
     const navigate = useNavigate()
-    let userLength = 0
     useEffect(() => {
     if (!localStorage.getItem('user')) {
         return navigate('/login')
     }
     fetchUserData(user, setUser, plants, setPlants )
-    console.log("from auth:", plants)
-    
+    // if (!user){
+    //      navigate('/login')
+    // }
+    console.log(plants)
 }, [])
 
 
