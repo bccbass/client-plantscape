@@ -14,12 +14,20 @@ const Auth = ({user, setUser, plants, setPlants, children}) => {
     if (!localStorage.getItem('user')) {
         return navigate('/login')
     }
-    fetchUserData(user, setUser, plants, setPlants )
+    getUser(setUser)
+    
     if (!user){
          navigate('/login')
     }
+    // COMMENT THIS WHEN USING LIVE DATA FROM PERENUAL
     setPlants(samplePlants)
 }, [])
+
+// UNCOMMENT THIS TO GET LIVE DATA FROM PERENUAL
+    // useEffect(() => {
+    //     getPlants(setPlants, user, plants)
+    // }, [user])
+
 
 
 return <>{ children }</>
