@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import NavBar from './NavBar.jsx'
 import { Link } from 'react-router-dom';
+import Plant from './Plant.jsx'
 const Home = ({ user }) => {
   
 

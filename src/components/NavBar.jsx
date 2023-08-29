@@ -18,7 +18,7 @@ const NavBar = () => {
           <div className="navbar-nav">
             <Link className="nav-link active" aria-current="page" href="#" to="/">Home</Link>
             <Link className="nav-link" href="#" to="My Garden">My Garden</Link>
-            <Link className="nav-link" href="#" to="My Plants">My Plants</Link>
+            <Link className="nav-link" href="#" to="myplants">My Plants</Link>
           </div>
           <div>
             < LogoutButton />

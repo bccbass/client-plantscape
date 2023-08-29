@@ -34,6 +34,7 @@ const Auth = ({user, setUser, plants, setPlants, children}) => {
     // if (!user){
     //      navigate('/login')
     // }
+    console.log(plants)
 }, [])
 
 
