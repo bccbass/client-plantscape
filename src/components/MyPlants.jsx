@@ -16,12 +16,7 @@ const MyPlants = ({ plants }) => {
     <>
     < NavBar />
       <h1>My Plants</h1>
-    {plants.length === 0 ?
-         <p>Sorry, no plants to display</p>
-    :
-    <div style={style} className="container">
-        <PlantList plants={plants} />
-        </div>}
+    < PlantList plants={plants} />
     </>
   );
 };
