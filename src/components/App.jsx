@@ -7,15 +7,13 @@ import Register from './Register.jsx'
 import AltNavBar from './AltNavBar.jsx'
 import Auth from './Auth.jsx'
 import { Routes, Route } from 'react-router-dom'
-import samplePlants from './samplePlants.jsx'
 
 
 
 function App() {
 const [user, setUser] = useState({})
 const [plants, setPlants] = useState([])
-console.log(plants)
-
+// setPlants(samplePlants)
 return (
     <>
       <Routes>

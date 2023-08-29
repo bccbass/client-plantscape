@@ -68,10 +68,10 @@ const storeToken = (token) => {
   if (!user.firstName) {
       await getUser(setUser)
   }
-  if ( user){
-  if (await user.plants.length > 0){
-      await getPlants(setPlants, user.plants )
-  }}
+  // if ( user){
+  // if (await user.plants.length > 0){
+  //     await getPlants(setPlants, user.plants )
+  // }}
   }
 
 export { storeToken, retrieveToken, getUser, getPlants, fetchUserData }
