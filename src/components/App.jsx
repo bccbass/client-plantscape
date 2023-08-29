@@ -13,6 +13,7 @@ import SpaceSelection from './SpaceSelection'
 
 function App() {
 const [user, setUser] = useState({})
+const [plants, setPlants] = useState([])
 
 // function SpaceSelectionWrapper() {
 //   const { user } = useParams()
@@ -25,7 +26,7 @@ const [user, setUser] = useState({})
         <Route path="/login" element={<><Login setUser={setUser}/></>} />
         <Route path="/register" element={<><Register/></>} />
     
-        <Route path="/" element={< Auth user={user} setUser ={setUser}><Home user={user}/></ Auth>} />
+        <Route path="/" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><Home user={user} plants={plants}/></Auth>} />
         <Route path="/space/">
           <Route path="all" element={<Auth user={user} setUser ={setUser}><SpaceSelection user={user}/></ Auth>} />
           {/* // <Route path=':/id' element={<SpaceWrapper />} /> */}
