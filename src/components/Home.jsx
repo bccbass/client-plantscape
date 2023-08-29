@@ -58,7 +58,7 @@ const Home = ({ user }) => {
           }))
         ).slice(0,3).map(({ spaceIndex, areaIndex, areaName }) => (
           <ListGroup.Item key={`${spaceIndex}-${areaIndex}`}>
-            <Link to={`/space/areas/${spaceIndex}/${areaIndex}`}>
+            <Link to={`/space/${spaceIndex}/area/${areaIndex}`}>
               {areaName}
             </Link>
           </ListGroup.Item>
