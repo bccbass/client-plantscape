@@ -31,16 +31,43 @@ const storeToken = (token) => {
 
   const getUser = async (setter) => {
     const user = JSON.parse(localStorage.getItem('user'))
-     const fetchUser = async () => {const res = await fetch(`${apiURL}/users/${user.id}`, {
+     const res = await fetch(`${apiURL}/users/${user.id}`, {
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${user.token}`
         }
         }
       )
       const data = await res.json()
       setter(data)
-    }
-    fetchUser()
   }
 
-export { storeToken, retrieveToken, getUser }
+  const getPlants = async (setter, plantIdsList) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+     const res = await fetch(`${apiURL}/plants`, {
+      method: "POST",  
+      mode: 'cors',
+      body: JSON.stringify(plantIdsList),
+      headers: {
+        "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`
+        }
+        }
+      )
+      const data = await res.json()
+      if (data[0].id){
+      setter(data)}
+  }
+
+  const fetchUserData = async (user, setUser, plants, setPlants) => {
+  
+  if (!user.firstName) {
+      await getUser(setUser)
+  }
+  
+  if ( user.plants.length > 0){
+      await getPlants(setPlants, user.plants )
+  }
+  }
+
+export { storeToken, retrieveToken, getUser, getPlants, fetchUserData }
