@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 
 const SpaceSelection = ({user}) => {
-  console.log(user)
+  console.log(user) // REMEMBER TO REMOVE THIS LINE!
   return <>
     <NavBar />
     <h1>{user.firstName}'s Spaces</h1>
