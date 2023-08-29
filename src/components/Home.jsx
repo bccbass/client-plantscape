@@ -22,18 +22,19 @@ const Home = ({ user }) => {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </Card.Text> */}
-      </Card.Body>
+</Card.Body>
       <ListGroup className="list-of-spaces">
         <Card.Title>Spaces</Card.Title>
         {user.spaces.map((space, index) => (
           <ListGroup.Item>
-            <Link key={index} to={`/spaces/${index}`}>
+            <Link key={index} to={`/space/${index}`}>
               {space.name}
             </Link>
           </ListGroup.Item>
         ))}
       </ListGroup>
-      <Card.Link href="#">Add space</Card.Link>
+      <Card.Link href="#">Add a new space</Card.Link>
+      <Card.Link href="/space/all">All spaces</Card.Link>
 
       {/* <ListGroup className="list-of-areas">
         <Card.Title>Areas</Card.Title>
@@ -62,7 +63,7 @@ const Home = ({ user }) => {
           }))
         ).slice(0,3).map(({ spaceIndex, areaIndex, areaName }) => (
           <ListGroup.Item key={`${spaceIndex}-${areaIndex}`}>
-            <Link to={`/space/areas/${spaceIndex}/${areaIndex}`}>
+            <Link to={`/space/${spaceIndex}/area/${areaIndex}`}>
               {areaName}
             </Link>
           </ListGroup.Item>
