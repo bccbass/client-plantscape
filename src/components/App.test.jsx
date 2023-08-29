@@ -30,4 +30,9 @@ describe("App Component", () => {
     expect(container.querySelector('form')).toHaveTextContent('Email')
     expect(container.querySelector('form')).toHaveTextContent('Password')
   })
+
+  it("Renders the AltNavBar component", () => {
+    expect(container.querySelector('nav')).not.toBeNull()
+    expect(container.querySelector('nav')).toHaveTextContent("Register")
+  })
 })
