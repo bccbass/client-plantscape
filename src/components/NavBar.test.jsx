@@ -5,8 +5,9 @@ import { BrowserRouter } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
 import userEvent from '@testing-library/user-event'
 
-describe("App Component", () => {
+describe("NavBar Component", () => {
   let container
+  let home
 
   beforeEach(() => {
     container = render(
@@ -21,5 +22,9 @@ describe("App Component", () => {
     expect(container.querySelector("nav")).toHaveTextContent("Home")
     expect(container.querySelector("nav")).toHaveTextContent("My Garden")
     expect(container.querySelector("nav")).toHaveTextContent("My Plants")
+  })
+
+  it("Renders the Home component when Home is clicked", async () => {
+    await userEvent.click(screen.getByText('Home'))
   })
 })

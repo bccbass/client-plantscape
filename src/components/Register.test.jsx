@@ -1,29 +1,28 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import App from './App.jsx'
+import Register from './Register.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
 import userEvent from '@testing-library/user-event'
 
-describe("App Component", () => {
+describe("Register Component", () => {
   let container
 
   beforeEach(() => {
     container = render(
       <BrowserRouter>
-        <App />
+        <Register />
       </BrowserRouter>
     ).container
   })
 
-  it("Renders the Login component", () => {
+  it("Renders the Register component", () => {
     expect(container.querySelector("form")).not.toBeNull()
     expect(container.querySelector("form")).toHaveTextContent("Email")
+    expect(container.querySelector("h3")).toHaveTextContent("New User Registration")
   })
 
-  it('Renders the Register component when Register is clicked', async () => {
-    await userEvent.click(screen.getByText('Register'))
-
+  it('Shows form details', () => {
     expect(container.querySelector('form')).not.toBeNull()
     expect(container.querySelector('form')).toHaveTextContent('First Name')
     expect(container.querySelector('form')).toHaveTextContent('Last Name')
