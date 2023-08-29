@@ -4,6 +4,10 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import NavBar from './NavBar.jsx'
 import { Link } from 'react-router-dom';
+import logo from "../assets/anotherLogo.svg";
+
+
+
 const Home = ({ user }) => {
   
 
@@ -11,13 +15,14 @@ const Home = ({ user }) => {
     < NavBar />
     {user && user?.spaces ? (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+      <Card.Img variant="top" src={logo} />
       <Card.Body>
-        <Card.Title>Welcome {user.firstName} {user.lastName}</Card.Title>
-        <Card.Text>
-          This is the home component displaying previews of your spaces, areas, and plants.
-        </Card.Text>
-      </Card.Body>
+        <Card.Title>Welcome, {user.firstName}!</Card.Title>
+        {/* <Card.Text>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text> */}
+</Card.Body>
       <ListGroup className="list-of-spaces">
         <Card.Title>Spaces</Card.Title>
         {user.spaces.map((space, index) => (

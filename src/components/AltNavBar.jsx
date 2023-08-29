@@ -4,7 +4,7 @@ import logo from '../assets/anotherLogo.svg'
 
 const NavBar = () => {
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body">
       <div class="container-fluid">
         <Link class="navbar-brand" href="#" to="/login">
           <img src={logo} alt="Plantscape Logo" width="30" height="24" class="d-inline-block align-text-top"/>
