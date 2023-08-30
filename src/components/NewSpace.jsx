@@ -14,7 +14,7 @@ const NewSpace = ({user}) => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`${apiURL}/users/{${user._id}`)
+      const response = await fetch(`${apiURL}/users/${user._id}`)
 
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
