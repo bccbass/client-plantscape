@@ -26,7 +26,7 @@ const SearchPlants = ({user, setUser}) => {
     
     return <>
     <div style={style}>
-        <SearchBar setSearchResults={setSearchResults}/>
+        <SearchBar  setSearchResults={setSearchResults}/>
         <SearchResultList searchResults={searchResults} setQuerySelection={setQuerySelection}/> 
         {querySelection && <PlantPreview plant={querySelection} user={user} setUser={setUser}/>}
         </div>
