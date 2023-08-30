@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 const SpaceSelection = ({user}) => { // MAYBE SHOULD JUST BE PASSING ONLY USER.SPACES AND NOT THE WHOLE USER OBJECT
   console.log(user) // REMEMBER TO REMOVE THIS LINE!
   return <>
-    <NavBar />
     <h1>{user.firstName}'s Spaces</h1>
     {user && user?.spaces ? (
     <Card style={{ width: '18rem' }}>

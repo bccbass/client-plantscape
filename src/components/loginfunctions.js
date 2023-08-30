@@ -52,7 +52,7 @@ const getPlants = async (setter, user, plants) => {
     },
   });
   const data = await res.json();
-  if (await data[0].id) {
+  if (data[0] && data[0].id) {
     if (user.plants.length > 0 && user.plants.length != plants.length) {
       await setter(data);
     }

@@ -4,6 +4,7 @@ import Home from './Home.jsx'
 import MyPlants from './MyPlants.jsx'
 import Login from './Login.jsx'
 import Register from './Register.jsx'
+import NavBar from './NavBar'
 import AltNavBar from './AltNavBar.jsx'
 import Auth from './Auth.jsx'
 import { Routes, Route, useParams } from 'react-router-dom'
@@ -23,7 +24,8 @@ function SpaceViewWrapper() {
 }
 
   return (
-    <>
+    <> 
+    {user && user.firstName ? < NavBar /> : <AltNavBar />}
       <Routes>
         <Route path="/login" element={<><Login setUser={setUser}/></>} />
         <Route path="/register" element={<><Register/></>} />
