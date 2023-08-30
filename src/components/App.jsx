@@ -27,7 +27,7 @@ function SpaceViewWrapper() {
       <Routes>
         <Route path="/login" element={<><Login setUser={setUser}/></>} />
         <Route path="/register" element={<><Register/></>} />
-        <Route path="/myplants" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><MyPlants plants={plants}/></Auth>} />
+        <Route path="/myplants" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><MyPlants  user={user} setUser ={setUser} plants={plants}/></Auth>} />
     
         <Route path="/" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><Home user={user} plants={plants}/></Auth>} />
         <Route path="/space/" user={user} setUser ={setUser} plants={plants} setPlants={setPlants}>

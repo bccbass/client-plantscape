@@ -41,8 +41,7 @@ const SearchBar = ({setSearchResults}) => {
           id="basic-addon2"
           onClick={(e) => {
             e.preventDefault();
-            console.log(e)
-            queryPlants(query);
+            query.length && queryPlants(query);
           }}
         >
           Search
@@ -50,28 +49,7 @@ const SearchBar = ({setSearchResults}) => {
       </form>
 
         <div>
-          {/* < SearchResultList searchResults={searchResults}/> */}
-          {/* {querySelection ? (
-            <div class="card w-75">
-              <img
-                src={querySelection.default_image.medium_url}
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">{querySelection.common_name}</h5>
-                <div class="card-text">
-                  <p> Watering: {querySelection.watering}</p>{" "}
-                  <p>sunlight: {querySelection.sunlight}</p>
-                </div>
-                <a href="#" class="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-            </div>
-          ) : (
-            <h1></h1>
-          )} */}
+          
         </div>
     </>
   );

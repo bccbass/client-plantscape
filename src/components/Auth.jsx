@@ -20,13 +20,13 @@ const Auth = ({user, setUser, plants, setPlants, children}) => {
          navigate('/login')
     }
     // COMMENT THIS WHEN USING LIVE DATA FROM PERENUAL
-    setPlants(samplePlants)
+    // setPlants(samplePlants)
 }, [])
 
 // UNCOMMENT THIS TO GET LIVE DATA FROM PERENUAL
-    // useEffect(() => {
-    //     getPlants(setPlants, user, plants)
-    // }, [user])
+    useEffect(() => {
+        getPlants(setPlants, user, plants)
+    }, [user])
 
 
 
