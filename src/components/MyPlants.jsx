@@ -10,7 +10,7 @@ const style = {
   maxWidth: "900px",
 };
 
-const MyPlants = ({ plants }) => {
+const MyPlants = ({ plants, user, setUser }) => {
   return (
     <>
       <NavBar />
@@ -18,7 +18,7 @@ const MyPlants = ({ plants }) => {
       <PlantList plants={plants} />
       <div>
 
-        <SearchPlants />
+        <SearchPlants user={user} setUser={setUser}/>
       </div>
     </>
   );
