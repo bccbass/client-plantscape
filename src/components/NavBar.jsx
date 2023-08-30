@@ -44,7 +44,7 @@ const NavBar = () => {
             <Link className="nav-link" href="#" to="/spaces">
               My Garden
             </Link>
-            <Link className="nav-link" href="#" to="/plants">
+            <Link className="nav-link" href="#" to="/myplants">
               My Plants
             </Link>
           </div>
