@@ -2,42 +2,37 @@ import React, { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router"
 import NavBar from "./NavBar.jsx"
 import apiURL from "./getAPI.js"
-import { storeToken, retrieveToken, getUser, getPlants, fetchUserData } from './loginfunctions.js'
 
-export default function NewSpace() {
+const NewSpace = ({user}) => {
+  console.log(user)
   const [form, setForm] = useState({
     name: "",
     notes: "",
     location: "",
   });
-  const params = useParams()
   const navigate = useNavigate()
 
   useEffect(() => {
     async function fetchData() {
-      const id = params.id
-      const response = await fetch(`${apiURL}/users/${id}`)
+      const response = await fetch(`${apiURL}/users/{${user._id}`)
 
       if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`
-        window.alert(message)
-        return
+        const message = `An error has occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
       }
 
       const record = await response.json()
       if (!record) {
-        window.alert(`Record with id ${id} not found`)
-        navigate("/")
-        return
+        window.alert(`Record with id ${user._id} not found`);
+        navigate("/");
+        return;
       }
-
       setForm(record)
     }
-
     fetchData()
-
-    return;
-  }, [params.id, navigate])
+    return
+  })
 
   function updateForm(value) {
     return setForm((prev) => {
@@ -54,10 +49,11 @@ export default function NewSpace() {
       location: form.location,
     };
 
-    await fetch(`${apiURL}/users/{${params.id}`, {
+    await fetch(`${apiURL}/users/{${user._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authentication: "Bearer " + user._id
       },
       body: JSON.stringify({
         "spaces": newSpace
@@ -132,3 +128,5 @@ export default function NewSpace() {
     </div>
   );
 }
+
+export default NewSpace
