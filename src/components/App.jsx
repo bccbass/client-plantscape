@@ -4,7 +4,7 @@ import Home from './Home.jsx'
 import MyPlants from './MyPlants.jsx'
 import Login from './Login.jsx'
 import Register from './Register.jsx'
-import AltNavBar from './AltNavBar.jsx'
+import NewSpace from './NewSpace.jsx'
 import Auth from './Auth.jsx'
 import { Routes, Route, useParams } from 'react-router-dom'
 import SpaceSelection from './SpaceSelection'
@@ -34,6 +34,7 @@ function SpaceViewWrapper() {
           <Route path="all" element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceSelection user={user}/></ Auth>} />
           <Route path=':spaceIndex' element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceViewWrapper /></ Auth>} />
         </Route>
+        <Route path="/newspace" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><NewSpace plants={plants}/></Auth>} />
       </Routes>
     </>
   )
