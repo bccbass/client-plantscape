@@ -23,6 +23,7 @@ const PlantList = ({ plants }) => {
               return (
                 <a
                   // href=""
+                  key={plant.id}
                   className="list-group-item list-group-item-action"
                   aria-current="true"
                   onClick={(e) => {
