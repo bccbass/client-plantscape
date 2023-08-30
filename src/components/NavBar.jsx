@@ -41,10 +41,10 @@ const NavBar = () => {
             >
               Home
             </Link>
-            <Link className="nav-link" href="#" to="My Garden">
+            <Link className="nav-link" href="#" to="/spaces">
               My Garden
             </Link>
-            <Link className="nav-link" href="#" to="myplants">
+            <Link className="nav-link" href="#" to="/plants">
               My Plants
             </Link>
           </div>
