@@ -10,6 +10,7 @@ import Auth from './Auth.jsx'
 import { Routes, Route, useParams } from 'react-router-dom'
 import SpaceSelection from './SpaceSelection'
 import SpaceView from './SpaceView'
+import NotFound from './NotFound.jsx'
 
 
 
@@ -36,6 +37,7 @@ function SpaceViewWrapper() {
           <Route path="all" element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceSelection user={user}/></ Auth>} />
           <Route path=':spaceIndex' element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceViewWrapper /></ Auth>} />
         </Route>
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </>
   )
