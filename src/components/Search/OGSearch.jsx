@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import apiURL from "../getAPI.js";
 
+// This is the original Search component. It should just be used for reference and 'SearchPlants' used in its place.
+
 const SearchPlants = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [query, setQuery] = useState([]);
