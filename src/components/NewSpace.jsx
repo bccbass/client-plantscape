@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router";
-import NavBar from "./NavBar.jsx";
-import apiURL from "./getAPI.js";
+import React, { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router"
+import NavBar from "./NavBar.jsx"
+import apiURL from "./getAPI.js"
+import { storeToken, retrieveToken, getUser, getPlants, fetchUserData } from './loginfunctions.js'
 
 export default function NewSpace() {
   const [form, setForm] = useState({
@@ -9,47 +10,44 @@ export default function NewSpace() {
     notes: "",
     location: "",
   });
-  const params = useParams();
-  const navigate = useNavigate();
+  const params = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function fetchData() {
-      const id = params.id.toString();
-      const response = await fetch(`${apiURL}/users/${id}`);
+      const id = params.id
+      const response = await fetch(`${apiURL}/users/${id}`)
 
       if (!response.ok) {
-        const message = `An error has occurred: ${response.statusTest}`;
-        window.alert(message);
-        return;
+        const message = `An error has occurred: ${response.statusText}`
+        window.alert(message)
+        return
       }
 
-      const record = await response.json();
+      const record = await response.json()
       if (!record) {
-        window.alert(`Record with id ${id} not found`);
-        navigate("/");
-        return;
+        window.alert(`Record with id ${id} not found`)
+        navigate("/")
+        return
       }
 
-      setForm(record);
+      setForm(record)
     }
 
-    fetchData();
+    fetchData()
 
     return;
-  }, [params.id, navigate]);
+  }, [params.id, navigate])
 
-  // These methods will update the state properties.
   function updateForm(value) {
     return setForm((prev) => {
-      return { ...prev, ...value };
-    });
+      return { ...prev, ...value }
+    })
   }
 
-  // This function will handle the submission.
   async function onSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    // When a post request is sent to the create url, we'll add a new record to the database.
     const newSpace = {
       name: form.name,
       notes: form.notes,
@@ -62,18 +60,16 @@ export default function NewSpace() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "spaces": [ newSpace ]
+        "spaces": newSpace
       }),
     }).catch((error) => {
-      window.alert(error);
-      return;
-    })
+      window.alert(error)
+      return
+    }).then((data) => console.log(data))
 
-    setForm({ name: "", notes: "", location: "" });
-    navigate("/newspace");
+    navigate("/newspace")
   }
 
-  // This following section will display the form that takes the input from the user.
   return (
     <div>
       <NavBar />
