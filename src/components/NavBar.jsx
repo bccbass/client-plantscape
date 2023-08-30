@@ -8,7 +8,7 @@ const style = {
 };
 const NavBar = () => {
   return (
-    <nav style={style} className="navbar navbar-expand-lg bg-body">
+    <nav style={style} className="navbar navbar-expand-lg bg-body ">
       <div className="container-fluid ">
         <Link className="navbar-brand" href="#" to="/">
           <img
@@ -48,7 +48,7 @@ const NavBar = () => {
               My Plants
             </Link>
             <div>
-          <LogoutButton className="" />
+          <LogoutButton  />
         </div>
           </div>
         </div>
