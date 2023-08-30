@@ -1,4 +1,6 @@
 import React from "react";
+import {upperCaser} from '../helperfuncs.js'
+
 
 const SearchResultList = ({ searchResults, setQuerySelection }) => {
 
@@ -19,7 +21,7 @@ const SearchResultList = ({ searchResults, setQuerySelection }) => {
                   setQuerySelection(res);
                 }}
               >
-                {res.common_name}{" "}
+                {upperCaser(res.common_name)}{" "}
               </button>
             </li>
           ))}

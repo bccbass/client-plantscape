@@ -47,11 +47,12 @@ const NavBar = () => {
             <Link className="nav-link" href="#" to="/myplants">
               My Plants
             </Link>
-          </div>
-        </div>
-        <div>
+            <div>
           <LogoutButton className="" />
         </div>
+          </div>
+        </div>
+
       </div>
     </nav>
   );

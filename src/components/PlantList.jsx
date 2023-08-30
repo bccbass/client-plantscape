@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Plant from "./Plant.jsx";
+import {upperCaser} from './helperfuncs.js'
+
 
 const style = {
   maxWidth: '750px',
@@ -16,6 +18,7 @@ const PlantList = ({ plants }) => {
         <div style={style} className="container">
 
       {plants.length === 0 ? (
+        
         <p>Sorry, no plants to display!</p>
       ) : (
           <div className="list-group">
@@ -31,7 +34,7 @@ const PlantList = ({ plants }) => {
                     setPlantSelect(plant);
                   }}
                 >
-                  {plant.common_name}
+                  {upperCaser(plant.common_name)}
                 </a>
               );
             })}
