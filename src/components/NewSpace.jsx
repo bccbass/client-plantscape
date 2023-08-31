@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import NavBar from "./NavBar.jsx";
 import apiURL from "./getAPI.js";
 
 const updateUser = async (user) => {
@@ -54,7 +53,6 @@ const NewSpace = ({ user, setUser }) => {
 
   return (
     <div>
-      <NavBar />
       <h3>Create New Space</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
