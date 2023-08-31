@@ -11,6 +11,8 @@ import { Routes, Route, useParams } from 'react-router-dom'
 import SpaceSelection from './SpaceSelection'
 import SpaceView from './SpaceView'
 import NotFound from './NotFound.jsx'
+import Space from './Space'
+import SpaceSelectionAlt from './SpaceSelectionAlt'
 
 
 
@@ -21,7 +23,7 @@ const [plants, setPlants] = useState([])
 
 function SpaceViewWrapper() {
   const { spaceIndex } = useParams()
-  return <SpaceView space={user.spaces[spaceIndex]} />
+  return <Space space={user.spaces[spaceIndex]} plants={plants} />
 }
 
   return (
@@ -34,7 +36,7 @@ function SpaceViewWrapper() {
     
         <Route path="/" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><Home user={user} plants={plants}/></Auth>} />
         <Route path="/space/" user={user} setUser ={setUser} plants={plants} setPlants={setPlants}>
-          <Route path="all" element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceSelection user={user}/></ Auth>} />
+          <Route path="" element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceSelectionAlt user={user} plants={plants}/></ Auth>} />
           <Route path=':spaceIndex' element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceViewWrapper /></ Auth>} />
         </Route>
         <Route path="/*" element={<NotFound />} />

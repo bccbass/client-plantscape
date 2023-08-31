@@ -25,6 +25,7 @@ const Auth = ({user, setUser, plants, setPlants, children}) => {
 
 // UNCOMMENT THIS TO GET LIVE DATA FROM PERENUAL
     useEffect(() => {
+        console.log("pla", plants)
         getPlants(setPlants, user, plants)
     }, [user])
 

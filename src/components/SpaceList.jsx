@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Plant from "./Plant.jsx";
+import React, { useState } from "react"
+import Space from './Space.jsx'
 import {upperCaser} from './helperfuncs.js'
 
 
@@ -7,45 +7,44 @@ const style = {
   maxWidth: '750px',
   display: 'flex',
   width: "90vw",
-  justifyContent: 'space-between',
+  justifyContent: 'space-between'
+}
 
-};
-
-const PlantList = ({ plants }) => {
-  const [plantSelect, setPlantSelect] = useState();
-  console.log(plants)
-  return (
+const SpaceList = ({spaces, plants}) => {
+    const [spaceSelect, setSpaceSelect] = useState();
+    return (
     <>
+        <div>SpaceList.jsx</div>
         <div style={style} className="container">
 
-      {plants.length === 0 ? (
+      {spaces.length === 0 ? (
         
-        <p>Sorry, no plants to display!</p>
+        <p>Sorry, no spaces to display!</p>
       ) : (
           <div className="list-group">
-            {plants.map((plant) => {
+            {spaces.map((space) => {
               return (
                 <a
                   // href=""
-                  key={plant.id}
+                  key={space.name}
                   className="list-group-item list-group-item-action"
                   aria-current="true"
                   onClick={(e) => {
                     e.preventDefault();
-                    setPlantSelect(plant);
+                    setSpaceSelect(space);
                   }}
                 >
-                  {upperCaser(plant.common_name)}
+                  {upperCaser(space.name)}
                 </a>
               );
             })}
           </div>
       )}
-      {plantSelect && < Plant plant={plantSelect}/>}
+      {spaceSelect && < Space space={spaceSelect} plants={plants}/>}
       </div>
 
     </>
-  );
-};
+  )
+}
 
-export default PlantList;
+export default SpaceList

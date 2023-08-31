@@ -38,7 +38,9 @@ const Home = ({ user, plants }) => {
               Add Space
             </Link>
           </ListGroup.Item>
-          <Card.Link className='mt-2' href="/space/all">...all spaces</Card.Link>
+          {/* <ListGroup.Item>
+            <Card.Link className='mt-2' href="/space">...all spaces</Card.Link>
+          </ListGroup.Item> */}
 
       </ListGroup>
       {/* <Card.Link href="#">Add Space</Card.Link> */}
@@ -60,7 +62,7 @@ const Home = ({ user, plants }) => {
       </ListGroup>
       <Card.Link href="#">All areas</Card.Link> */}
 
-      <ListGroup className="list-of-areas mt-3 mb-3">
+      {/* <ListGroup className="list-of-areas mt-3 mb-3">
         <Card.Title className='mt-3'>Areas</Card.Title>
         {user.spaces.flatMap((space, spaceIndex) =>
           space.areas.map((area, areaIndex) => ({
@@ -76,8 +78,7 @@ const Home = ({ user, plants }) => {
           </ListGroup.Item>
         ))}
       <Card.Link className='mt-2' href="#">...all areas</Card.Link>
-
-      </ListGroup>
+      </ListGroup> */}
 
       <ListGroup className="list-of-plants mt-3 mb-3">
         <Card.Title className='mt-3'>Plants</Card.Title>
@@ -88,6 +89,11 @@ const Home = ({ user, plants }) => {
             </Link>
           </ListGroup.Item>
         ))}
+        <ListGroup.Item className="bg-success bg-opacity-25">
+          <Link className='addPlant' key='createPlant' to={`/newplant/`}>
+              Add Plant
+            </Link>
+          </ListGroup.Item>
       <Link className='mt-2' to="/myplants">...all plants</Link>
 
       </ListGroup>
