@@ -19,7 +19,6 @@ const style = {
 
 const SearchPlants = ({user, setUser, setActive}) => {
   const [searchResults, setSearchResults] = useState([]);
-  const [querySelection, setQuerySelection] = useState();
 
 
 
@@ -27,8 +26,7 @@ const SearchPlants = ({user, setUser, setActive}) => {
     return <>
     <div >
         <SearchBar  setSearchResults={setSearchResults}/>
-        <SearchResultList searchResults={searchResults} querySelection={querySelection} setQuerySelection={setQuerySelection} user={user} setUser={setUser} setActive={setActive}/> 
-        {/* {querySelection && <PlantPreview plant={querySelection} user={user} setUser={setUser} setActive={setActive}/>} */}
+        <SearchResultList searchResults={searchResults} user={user} setUser={setUser} setActive={setActive}/> 
         </div>
     </>    
   }
