@@ -8,7 +8,7 @@ const Plant = ({plant}) => {
     <div className="card mb-3" style={styles}>
   <div className="row g-0">
     <div className="col-md-4">
-      {/* <img src={plant.default_image.original_url} className="img-fluid rounded-start" alt="..."/> */}
+      <img src={plant.default_image.original_url} className="img-fluid rounded-start" alt="..."/>
     </div>
     <div className="col-md-8">
       <div className="card-body">
