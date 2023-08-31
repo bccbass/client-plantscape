@@ -5,6 +5,7 @@ import MyPlants from './MyPlants.jsx'
 import Login from './Login.jsx'
 import Register from './Register.jsx'
 import NewSpace from './NewSpace.jsx'
+import NewArea from './NewArea.jsx'
 import NavBar from './NavBar'
 import AltNavBar from './AltNavBar.jsx'
 import Auth from './Auth.jsx'
@@ -39,6 +40,8 @@ function SpaceViewWrapper() {
           <Route path=':spaceIndex' element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceViewWrapper /></ Auth>} />
         </Route>
         <Route path="/newspace" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><NewSpace user={user} setUser={setUser}/></Auth>} />
+        <Route path="/newarea" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><NewArea user={user} setUser={setUser}/></Auth>} />
+
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </>
