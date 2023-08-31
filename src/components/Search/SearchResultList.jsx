@@ -14,9 +14,9 @@ const SearchResultList = ({ user, setUser, searchResults, setActive }) => {
 
   return (
     <>
-      {searchResults && <h6><em>Search results...</em></h6>}
+      {searchResults[0] && <h6 className="text-secondary"><em>Search results...</em></h6>}
       <ul  className="list-group" style={{ maxWidth: "200px" }}>
-        {searchResults &&
+        {searchResults[0] &&
           searchResults.map((res, i) => (
             <li
               style={{ border: "none" }}
