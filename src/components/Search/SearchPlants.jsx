@@ -17,7 +17,7 @@ const style = {
 // plant id to appropriate user plant lists.
 
 
-const SearchPlants = ({user, setUser}) => {
+const SearchPlants = ({user, setUser, setActive}) => {
   const [searchResults, setSearchResults] = useState([]);
   const [querySelection, setQuerySelection] = useState();
 
@@ -25,10 +25,10 @@ const SearchPlants = ({user, setUser}) => {
 
     
     return <>
-    <div style={style}>
+    <div >
         <SearchBar  setSearchResults={setSearchResults}/>
-        <SearchResultList searchResults={searchResults} setQuerySelection={setQuerySelection}/> 
-        {querySelection && <PlantPreview plant={querySelection} user={user} setUser={setUser}/>}
+        <SearchResultList searchResults={searchResults} querySelection={querySelection} setQuerySelection={setQuerySelection} user={user} setUser={setUser} setActive={setActive}/> 
+        {/* {querySelection && <PlantPreview plant={querySelection} user={user} setUser={setUser} setActive={setActive}/>} */}
         </div>
     </>    
   }
