@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Plant from "./Plant.jsx";
 import {upperCaser} from './helperfuncs.js'
 
@@ -6,13 +6,15 @@ import {upperCaser} from './helperfuncs.js'
 const style = {
   maxWidth: '750px',
   display: 'flex',
-  width: "90vw",
   justifyContent: 'space-between',
 
 };
 
-const PlantList = ({ plants }) => {
+const PlantList = ({ plants, setActive }) => {
   const [plantSelect, setPlantSelect] = useState();
+  useEffect(() => { plantSelect && setActive(< Plant plant={plantSelect}/>)}, [plantSelect]);
+  // useEffect(() => setActive(<><h1>I'm active</h1></>), [plantSelect]);
+
   return (
     <>
         <div style={style} className="container">
@@ -32,6 +34,7 @@ const PlantList = ({ plants }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     setPlantSelect(plant);
+
                   }}
                 >
                   {upperCaser(plant.common_name)}
@@ -40,7 +43,6 @@ const PlantList = ({ plants }) => {
             })}
           </div>
       )}
-      {plantSelect && < Plant plant={plantSelect}/>}
       </div>
 
     </>

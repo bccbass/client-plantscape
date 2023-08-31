@@ -19,7 +19,7 @@ const updateUser = async (user) => {
 
 }
 
-const PlantPreview = ({ plant, user, setUser }) => {
+const PlantPreview = ({ plant, user, setUser, setActive }) => {
   const handleOnClick = (e) => {
     e.preventDefault()
     if (!user.plants.includes(plant.id)) {
@@ -30,7 +30,7 @@ const PlantPreview = ({ plant, user, setUser }) => {
   updateUser(user)
   }
   return (
-    <>
+  <>
       <div className="card mb-3" style={styles}>
         <div className="row g-0">
           <div className="col-md-4">
@@ -57,11 +57,13 @@ const PlantPreview = ({ plant, user, setUser }) => {
                 Add Plant
               </button>
             </div>
+            
           </div>
         </div>
+        <span className="mt-3"><em> Search Preview </em></span>
       </div>
-    </>
-  );
+    </>)
+
 };
 
 export default PlantPreview;

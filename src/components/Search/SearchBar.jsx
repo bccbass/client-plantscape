@@ -23,7 +23,7 @@ const SearchBar = ({setSearchResults}) => {
 
   return (
     <>
-      <form className="input-group mb-3 w-50 ">
+      <form style={{width: '100%'}} className="input-group mb-3 mt-2 ">
         <input
           type="text"
           className="form-control"
@@ -41,7 +41,6 @@ const SearchBar = ({setSearchResults}) => {
           id="basic-addon2"
           onClick={(e) => {
             e.preventDefault();
-            console.log(e)
             queryPlants(query);
           }}
         >
