@@ -30,7 +30,6 @@ function Login({setUser}) {
   }, [token])
 
   return (<>
-    <AltNavBar />
     <div className="Login">
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">

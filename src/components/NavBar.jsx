@@ -8,7 +8,7 @@ const style = {
 };
 const NavBar = () => {
   return (
-    <nav style={style} className="navbar navbar-expand-lg bg-body">
+    <nav style={style} className="navbar navbar-expand-lg bg-body ">
       <div className="container-fluid ">
         <Link className="navbar-brand" href="#" to="/">
           <img
@@ -41,17 +41,18 @@ const NavBar = () => {
             >
               Home
             </Link>
-            <Link className="nav-link" href="#" to="My Garden">
+            <Link className="nav-link" href="#" to="/spaces">
               My Garden
             </Link>
-            <Link className="nav-link" href="#" to="myplants">
+            <Link className="nav-link" href="#" to="/myplants">
               My Plants
             </Link>
+            <div>
+          <LogoutButton  />
+        </div>
           </div>
         </div>
-        <div>
-          <LogoutButton className="" />
-        </div>
+
       </div>
     </nav>
   );

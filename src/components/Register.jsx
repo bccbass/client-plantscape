@@ -47,7 +47,6 @@ function Register() {
   }
 
   return (<>
-    <AltNavBar />
     <div>
       <h3>New User Registration</h3>
       <form onSubmit={onSubmit}>

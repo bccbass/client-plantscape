@@ -8,7 +8,7 @@ const handleLogout = () => {
 }
 
 const LogoutButton = () => {
-    return <Link className='nav-link'style={style} onClick={handleLogout} to='/login'>Logout</Link>
+    return <Link className='nav-link ms-2'style={style} onClick={handleLogout} to='/login'>Logout</Link>
 }
 
 export default LogoutButton
