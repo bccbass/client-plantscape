@@ -1,69 +1,55 @@
-import React, { useState, useEffect } from "react"
-import { useNavigate, useParams } from "react-router"
-import NavBar from "./NavBar.jsx"
-import apiURL from "./getAPI.js"
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import NavBar from "./NavBar.jsx";
+import apiURL from "./getAPI.js";
 
-const NewSpace = ({user}) => {
-  console.log(user)
+const updateUser = async (user) => {
+  await fetch(`${apiURL}/users/${user._id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${JSON.parse(localStorage.user).token}`,
+    },
+    body: JSON.stringify(user),
+  }).catch((error) => {
+    window.alert(error);
+    return;
+  });
+};
+
+const NewSpace = ({ user, setUser }) => {
   const [form, setForm] = useState({
     name: "",
     notes: "",
     location: "",
   });
-  const navigate = useNavigate()
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(`${apiURL}/users/${user._id}`)
-
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-
-      const record = await response.json()
-      if (!record) {
-        window.alert(`Record with id ${user._id} not found`);
-        navigate("/");
-        return;
-      }
-      setForm(record)
-    }
-    fetchData()
-    return
-  })
+  const navigate = useNavigate();
 
   function updateForm(value) {
     return setForm((prev) => {
-      return { ...prev, ...value }
-    })
+      return { ...prev, ...value };
+    });
   }
 
   async function onSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     const newSpace = {
       name: form.name,
       notes: form.notes,
       location: form.location,
-    };
-
-    await fetch(`${apiURL}/users/{${user._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authentication: "Bearer " + user._id
-      },
-      body: JSON.stringify({
-        "spaces": newSpace
-      }),
-    }).catch((error) => {
-      window.alert(error)
-      return
-    }).then((data) => console.log(data))
-
-    navigate("/newspace")
+    }
+    
+    if (user.spaces.find((space) => space.name === newSpace.name)) {
+      window.alert("That space already exists!")
+    } else {
+      let userCopy = { ...user };
+      userCopy.spaces.push(newSpace);
+      setUser(userCopy);
+      setForm({ name: "", notes: "", location: "" })
+    }
+    updateUser(user)
   }
 
   return (
@@ -127,6 +113,6 @@ const NewSpace = ({user}) => {
       </form>
     </div>
   );
-}
+};
 
-export default NewSpace
+export default NewSpace;

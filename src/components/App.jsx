@@ -34,7 +34,7 @@ function SpaceViewWrapper() {
           <Route path="all" element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceSelection user={user}/></ Auth>} />
           <Route path=':spaceIndex' element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceViewWrapper /></ Auth>} />
         </Route>
-        <Route path="/newspace" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><NewSpace user={user}/></Auth>} />
+        <Route path="/newspace" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><NewSpace user={user} setUser={setUser}/></Auth>} />
       </Routes>
     </>
   )
