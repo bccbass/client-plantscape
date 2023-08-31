@@ -21,13 +21,7 @@ const NewArea = ({ user, setUser }) => {
     name: "",
     notes: "",
     space: "",
-  })
-
-  const [space, setSpace] = useState("Select Space")
-
-  const updateSpace = (e) => {
-    setSpace(e.target.value)
-  }
+  });
 
   const navigate = useNavigate();
 
@@ -42,20 +36,25 @@ const NewArea = ({ user, setUser }) => {
 
     const newArea = {
       name: form.name,
-      notes: form.notes,
-      space: form.space,
-    };
-
-    if (user.areas.find((area) => area.name === newArea.name)) {
-      window.alert("That area already exists!");
-    } else {
-      let userCopy = { ...user };
-      userCopy.spaces.push(newArea);
-      setUser(userCopy);
-      setForm({ name: "", notes: "", space: "" });
+      notes: form.notes
     }
-    updateUser(user);
+
+
+
+    for (let i of user.spaces) {
+      if (i.areas.find((area) => area.name === form.name )) {
+        window.alert("That area already exists");
+      } else {
+        let userCopy = { ...user };
+        const index = userCopy.spaces.findIndex((spaces) => spaces.name === form.space)
+        userCopy.spaces[index].push(newArea)
+        setUser(userCopy);
+        setForm({ name: "", notes: "", space: "" });
+      }
+    } 
   }
+
+  updateUser(user);
 
   return (
     <div>
@@ -81,9 +80,17 @@ const NewArea = ({ user, setUser }) => {
             onChange={(e) => updateForm({ notes: e.target.value })}
           />
         </div>
-        <select onChange={updateSpace} className="form-select form-select-me" aria-label="Small select example">
+        <select
+          onChange={(e) => updateForm({ space: e.target.value })}
+          className="form-select form-select-me"
+          aria-label="Small select example" id="space"
+        >
           <option value="Select Space"> -- Select Space -- </option>
-          {user.spaces.map((space) => <option key={space.name} value={form.space}>{space.name}</option>)}
+          {(user?.spaces || []).map((space, index) => (
+            <option key={index} value={space.name}>
+              {space.name}
+            </option>
+          ))}
         </select>
         <div className="form-group">
           <input type="submit" value="Add Area" className="btn btn-primary" />
