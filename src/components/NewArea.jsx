@@ -34,27 +34,31 @@ const NewArea = ({ user, setUser }) => {
   async function onSubmit(e) {
     e.preventDefault();
 
-    const newArea = {
-      name: form.name,
-      notes: form.notes
-    }
-
-
+    let index
+    let userCopy
 
     for (let i of user.spaces) {
       if (i.areas.find((area) => area.name === form.name )) {
         window.alert("That area already exists");
       } else {
-        let userCopy = { ...user };
-        const index = userCopy.spaces.findIndex((spaces) => spaces.name === form.space)
-        userCopy.spaces[index].push(newArea)
-        setUser(userCopy);
-        setForm({ name: "", notes: "", space: "" });
+        userCopy = { ...user };
+        index = userCopy.spaces.findIndex((spaces) => spaces.name === form.space)
       }
-    } 
+    }
+
+    let newArea = {
+      name: form.name,
+      notes: form.notes
+    }
+
+    // console.log(newArea)
+    userCopy.spaces[index].areas.push(newArea)
+    setUser(userCopy);
+    setForm({ name: "", notes: "", space: "" });
+    // console.log(userCopy.spaces[index].areas)
   }
 
-  updateUser(user);
+  updateUser(user);  
 
   return (
     <div>
