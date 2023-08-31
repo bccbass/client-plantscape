@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/anotherLogo.svg'
 
-const NavBar = () => {
+const AltNavBar = () => {
   return (
     <nav class="navbar navbar-expand-lg bg-body mb-5">
       <div class="container-fluid">
@@ -24,4 +24,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default AltNavBar
