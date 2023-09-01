@@ -18,14 +18,14 @@ const style = {
 
 
 const SearchPlants = ({user, setUser, setActive}) => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(false);
 
 
 
     
     return <>
     <div >
-        <SearchBar  setSearchResults={setSearchResults}/>
+        <SearchBar searchResults={searchResults} setSearchResults={setSearchResults}/>
         <SearchResultList searchResults={searchResults} user={user} setUser={setUser} setActive={setActive}/> 
         </div>
     </>    
