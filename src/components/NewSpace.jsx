@@ -1,20 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import apiURL from "./getAPI.js";
-
-const updateUser = async (user) => {
-  await fetch(`${apiURL}/users/${user._id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.user).token}`,
-    },
-    body: JSON.stringify(user),
-  }).catch((error) => {
-    window.alert(error);
-    return;
-  });
-};
+import { updateUser } from './helperfuncs.js'
 
 const NewSpace = ({ user, setUser }) => {
   const [form, setForm] = useState({
