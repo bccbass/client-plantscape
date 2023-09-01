@@ -1,6 +1,7 @@
 import React from 'react'
 import {upperCaser} from './helperfuncs.js'
 import AreaList from './AreaList.jsx'
+import AreaListTest from './AreaListTest.jsx'
 
 const styles = { maxWidth: '540px', color: 'grey'}
 
@@ -23,7 +24,7 @@ const Space = ({space, plants}) => {
     </div>
   </div>
 </div>
-<AreaList areas={space.areas} plants={plants}/>
+<AreaListTest areas={space.areas} plants={plants}/>
 </>
 }
 
