@@ -2,10 +2,12 @@ import React from 'react'
 import {upperCaser} from './helperfuncs.js'
 import AreaList from './AreaList.jsx'
 import AreaListTest from './AreaListTest.jsx'
+import { useNavigate } from 'react-router-dom'
 
 const styles = { maxWidth: '540px', color: 'grey'}
 
 const Space = ({space, plants}) => {
+  const navigate = useNavigate()
   return <>
     <div>Space.jsx</div>
     <div className="card mb-3" style={styles}>
@@ -21,6 +23,7 @@ const Space = ({space, plants}) => {
           <p className="card-text">{space.notes}</p>
         </div>
       {/* <AreaList areas={space.areas} plants={plants}/> */}
+      <button className="btn btn-success" onClick={e => {navigate('/newarea')}}>Add Area</button>
     </div>
   </div>
 </div>

@@ -28,15 +28,18 @@ const AddPlants = ({ user, setUser, area, space }) => {
   }, [user]);
 
   const handleAddPlantsClick = () => {
+    let newPlantsIdArray = newPlants.map((el) => el.id)
     let spaceFromUser =
       user?.spaces && user.spaces.filter((el) => el.name == area.space)[0];
     let areaFromUser =
       spaceFromUser?.areas &&
       spaceFromUser.areas.filter((el) => el.name == area.name)[0];
     setThisArea(areaFromUser); 
-    areaFromUser.plants = newPlants.map((el) => el.id);
-    console.log("user plants", areaFromUser.plants);
-    console.log("thisarea:", thisArea);
+    areaFromUser.plants = newPlantsIdArray
+    setUser(user.plants = [...new Set([...user.plants, ...newPlantsIdArray])])
+    // console.log("user plants", areaFromUser.plants);
+    // console.log("thisarea:", thisArea);
+
     setUser(user);
     updateUser(user);
     navigate("/");
