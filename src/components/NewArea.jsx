@@ -25,7 +25,7 @@ const NewArea = ({ user, setUser }) => {
 
     for (let i of user.spaces) {
       if (i.areas.find((area) => area.name === form.name )) {
-        window.alert("That area already exists");
+        window.alert("That area already exists")
       } else {
         userCopy = { ...user };
         index = userCopy.spaces.findIndex((spaces) => spaces.name === form.space)
@@ -37,14 +37,12 @@ const NewArea = ({ user, setUser }) => {
       notes: form.notes
     }
 
-    // console.log(newArea)
     userCopy.spaces[index].areas.push(newArea)
-    setUser(userCopy);
-    setForm({ name: "", notes: "", space: "" });
-    // console.log(userCopy.spaces[index].areas)
+    setUser(userCopy)
+    updateUser(user); 
+    setForm({ name: "", notes: "", space: "" })
+    navigate("/")
   }
-
-  updateUser(user);  
 
   return (
     <div>
