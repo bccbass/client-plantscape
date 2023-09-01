@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchResultList from './SearchResultList.jsx'
 import SearchBar from './SearchBar.jsx'
 import PlantPreview from "./PlantPreview.jsx";
@@ -11,13 +11,10 @@ const style = {
     margin: '2rem',
 }
 
-// To make this work to select plants for areas, pass in a setter to Search plants. 
-// Create logic to 'set' that setter when the Plant Prevew is clicked - probalby a button on the 
-// PlantPreview that assigns the plant ID to the setter. Parent logic would then add that 
-// plant id to appropriate user plant lists.
 
 
-const SearchPlants = ({user, setUser, setActive}) => {
+
+const SearchPlants = ({user, setUser, setQuerySelection}) => {
   const [searchResults, setSearchResults] = useState(false);
 
 
@@ -26,7 +23,7 @@ const SearchPlants = ({user, setUser, setActive}) => {
     return <>
     <div >
         <SearchBar searchResults={searchResults} setSearchResults={setSearchResults}/>
-        <SearchResultList searchResults={searchResults} user={user} setUser={setUser} setActive={setActive}/> 
+        <SearchResultList searchResults={searchResults} user={user} setUser={setUser} setQuerySelection={setQuerySelection}/> 
         </div>
     </>    
   }

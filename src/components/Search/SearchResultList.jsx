@@ -3,13 +3,8 @@ import PlantPreview from "./PlantPreview.jsx";
 import {upperCaser} from '../helperfuncs.js'
 
 
-const SearchResultList = ({ user, setUser, searchResults, setActive }) => {
-  const [querySelection, setQuerySelection] = useState(false);
+const SearchResultList = ({ user, setUser, searchResults, setQuerySelection}) => {
   
-  useEffect(() =>  { if (querySelection) { 
-  setActive(<PlantPreview plant={querySelection} user={user} setUser={setUser} setActive={setActive}/>)}
-}, [querySelection])
-
 
 
   return (
