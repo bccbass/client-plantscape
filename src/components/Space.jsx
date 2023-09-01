@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {upperCaser} from './helperfuncs.js'
 import AreaList from './AreaList.jsx'
-import EditSpaceButton from './EditSpaceButton.jsx'
+import EditSpace from './EditSpace.jsx'
 
 const styles = { maxWidth: '540px', color: 'grey'}
 
-const Space = ({space, plants}) => {
+const Space = ({user, setUser, space, plants}) => {
+  const [showComponent, setShowComponent] = useState(false)
+
+  const handleClick = () => {
+    setShowComponent(true)
+  }
+
   return <>
     <div>Space.jsx</div>
     <div className="card mb-3" style={styles}>
@@ -24,7 +30,10 @@ const Space = ({space, plants}) => {
     </div>
   </div>
 </div>
-<EditSpaceButton />
+<div className="form-group">
+  <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-primary" />
+  {showComponent && <EditSpace space={space} />}
+</div>
 <AreaList areas={space.areas} plants={plants}/>
 
 </>

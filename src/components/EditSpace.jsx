@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { updateUser } from './helperfuncs.js'
 
-const EditSpace = ({ user, setUser }) => {
+const EditSpace = ({ space, user, setUser }) => {
+  console.log(user)
   const [form, setForm] = useState({
     name: "",
     notes: "",
@@ -25,27 +26,26 @@ const EditSpace = ({ user, setUser }) => {
       notes: form.notes,
       location: form.location,
     }
-    
-    if (user.spaces.find((space) => space.name === newSpace.name)) {
-      window.alert("That space already exists!")
-    } else {
-      let userCopy = { ...user };
-      userCopy.spaces.push(newSpace);
+
+    if (space.name !== editedSpace.name || space.notes !== editedSpace.notes || space.location !== editedSpace.location) {
+      let userCopy = { ...user }
+      userCopy.spaces.push(editedSpace)
       setUser(userCopy);
       setForm({ name: "", notes: "", location: "" })
+    } else {
+      window.alert("Please make an edit to the Space details.")
     }
     updateUser(user)
   }
 
   return (
     <div>
-      <h3>Edit Space</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label hidden htmlFor="name" >Name</label>
           <input
             type="text"
-            placeholder="Edit Name"
+            placeholder={`Edit Name - "${space.name}"`}
             className="form-control"
             id="name"
             value={form.name}
@@ -56,7 +56,7 @@ const EditSpace = ({ user, setUser }) => {
           <label hidden htmlFor="name">Notes</label>
           <input
             type="text"
-            placeholder="Edit Notes"
+            placeholder={`Edit Notes - "${space.notes}"`}
             className="form-control"
             id="notes"
             value={form.notes}
@@ -94,7 +94,7 @@ const EditSpace = ({ user, setUser }) => {
           </div>
         </div>
         <div className="form-group">
-          <input type="submit" value="Add Space" className="btn btn-primary" />
+          <input type="submit" value="Confirm" className="btn btn-primary" />
         </div>
       </form>
     </div>

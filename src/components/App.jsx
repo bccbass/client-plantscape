@@ -26,7 +26,7 @@ const [plants, setPlants] = useState([])
 
 function SpaceViewWrapper() {
   const { spaceIndex } = useParams()
-  return <Space space={user.spaces[spaceIndex]} plants={plants} />
+  return <Space user={user} setUser={setUser} space={user.spaces[spaceIndex]} plants={plants} />
 }
 
   return (
