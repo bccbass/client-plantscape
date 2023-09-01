@@ -1,23 +1,10 @@
 import React from "react";
+import { updateUser } from "../helperfuncs.js";
 import apiURL from "../getAPI";
 
 const styles = { maxWidth: "340px", color: "grey" };
 
-const updateUser = async (user) => {
-  await fetch(`${apiURL}/users/${user._id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.user).token}`
-    },
-    body: JSON.stringify(user)
-  })
-  .catch(error => {
-    window.alert(error)
-    return
-  })
 
-}
 
 const PlantPreview = ({ plant, user, setUser, setActive }) => {
   const handleOnClick = (e) => {
