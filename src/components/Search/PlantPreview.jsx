@@ -6,7 +6,7 @@ const styles = { maxWidth: "340px", color: "grey" };
 
 
 
-const PlantPreview = ({ plant, user, setUser, setActive }) => {
+const PlantPreview = ({ plant, user, setUser }) => {
   const handleOnClick = (e) => {
     e.preventDefault()
     if (!user.plants.includes(plant.id)) {
