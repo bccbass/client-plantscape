@@ -31,7 +31,7 @@ const NewSpace = ({ user, setUser }) => {
     });
   }
 
-  async function onSubmit(e) {
+  async function onSubmit(e, navDestination) {
     e.preventDefault();
 
     const newSpace = {
@@ -49,12 +49,13 @@ const NewSpace = ({ user, setUser }) => {
       setForm({ name: "", notes: "", location: "" })
     }
     updateUser(user)
+    navigate(navDestination)
   }
 
   return (
     <div>
       <h3>Create New Space</h3>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={(e) => onSubmit(e, '/')}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
