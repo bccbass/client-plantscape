@@ -26,7 +26,7 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
   return (
     <>
       <form
-        style={{ width: "100%" }}
+        style={{ maxWidth: '250px' }}
         className="input-group mb-3 mt-2"
         onSubmit={(e) => {
           e.preventDefault();

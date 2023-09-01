@@ -43,6 +43,7 @@ const NewAreaForm = ({ user, setUser, setArea, setFormSubmit }) => {
     let newArea = {
       name: form.name,
       notes: form.notes,
+      plants: []
     };
 
     // console.log(newArea)
