@@ -39,12 +39,12 @@ const AreaList = ({areas, plants}) => {
                 </a>
               )
             })}
-            {areaSelect && < Area area={areaSelect} plants={plants}/>}
+            {/* {areaSelect && < Area area={areaSelect} plants={plants}/>} */}
           </div>
           
       )}
       </div>
-
+      {areaSelect && < Area area={areaSelect} plants={plants}/>}
     </>
   )
 }
