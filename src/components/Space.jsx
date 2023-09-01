@@ -24,7 +24,7 @@ const Space = ({space, plants}) => {
     </div>
   </div>
 </div>
-<AreaListTest areas={space.areas} plants={plants}/>
+<AreaList areas={space.areas} plants={plants}/>
 </>
 }
 
