@@ -14,6 +14,7 @@ import SpaceSelection from './SpaceSelection'
 import SpaceView from './SpaceView'
 import NotFound from './NotFound.jsx'
 import SpaceSelectionAlt from './SpaceSelectionAlt.jsx'
+import Space from './Space'
 
 
 

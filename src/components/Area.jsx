@@ -5,12 +5,14 @@ import PlantList from './PlantList.jsx'
 const styles = { maxWidth: '540px', color: 'grey'}
 
 const Area = ({area, plants}) => {
+  console.log(area)
+  console.log(area.plants)
 
-  const areaPlantsIds = area.plants.map((plant) => plant.plantId)
-  console.log(areaPlantsIds)
-  const areaPlants = plants.filter(plant => areaPlantsIds.includes(plant.id))
-  // const areaPlants = plants.filter(plant => plant.id === area.plants.plantId)
-  console.log(areaPlants)
+  // const areaPlantsIds = area.plants.map((plant) => plant.plantId)
+  // console.log(areaPlantsIds)
+  // const areaPlants = plants.filter(plant => areaPlantsIds.includes(plant.id))
+  // // const areaPlants = plants.filter(plant => plant.id === area.plants.plantId)
+  // console.log(areaPlants)
   // console.log(area.plants)
   return <>
     <div>Area.jsx</div>
@@ -26,7 +28,7 @@ const Area = ({area, plants}) => {
 
         <p className="card-text">{area.notes}</p>
       </div>
-      <PlantList plants={areaPlants}/>
+      <PlantList plants={area.plants}/>
     </div>
   </div>
 </div>
