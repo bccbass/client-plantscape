@@ -19,11 +19,11 @@ const Space = ({space, plants}) => {
 
           <p className="card-text">{space.notes}</p>
         </div>
-      <AreaList areas={space.areas} plants={plants}/>
+      {/* <AreaList areas={space.areas} plants={plants}/> */}
     </div>
   </div>
 </div>
-
+<AreaList areas={space.areas} plants={plants}/>
 </>
 }
 

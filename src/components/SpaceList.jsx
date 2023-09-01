@@ -40,9 +40,9 @@ const SpaceList = ({spaces, plants}) => {
             })}
           </div>
       )}
-      {spaceSelect && < Space space={spaceSelect} plants={plants}/>}
+      {/* {spaceSelect && < Space space={spaceSelect} plants={plants}/>} */}
       </div>
-
+      {spaceSelect && < Space space={spaceSelect} plants={plants}/>}
     </>
   )
 }
