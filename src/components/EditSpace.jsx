@@ -39,14 +39,13 @@ const NewSpace = ({ user, setUser }) => {
 
   return (
     <div>
-      <h3>Create New Space</h3>
-      <p>A Space is just a big place to group your areas and plants in!</p>
+      <h3>Edit Space</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label hidden htmlFor="name">Name</label>
+          <label htmlFor="name" >Name</label>
           <input
-            placeholder="Name of Space (e.g. Front Yard, House)"
             type="text"
+            placeholder="Edit Name"
             className="form-control"
             id="name"
             value={form.name}
@@ -54,10 +53,10 @@ const NewSpace = ({ user, setUser }) => {
           />
         </div>
         <div className="form-group">
-          <label hidden htmlFor="name">Notes</label>
+          <label htmlFor="name">Notes</label>
           <input
-            placeholder="Notes"
             type="text"
+            placeholder="Edit Notes"
             className="form-control"
             id="notes"
             value={form.notes}

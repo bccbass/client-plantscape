@@ -48,11 +48,13 @@ function Register() {
 
   return (<>
     <div>
-      <h3>New User Registration</h3>
+      <h3>Welcome to Plantscape</h3>
+      <p>Your plants are going to love you 🍀</p>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="firstName">First Name</label>
+          <label hidden htmlFor="firstName">First Name</label>
           <input
+            placeholder="First Name"
             type="text"
             className="form-control"
             id="firstName"
@@ -61,8 +63,9 @@ function Register() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">Last Name</label>
+          <label hidden htmlFor="lastName">Last Name</label>
           <input
+            placeholder="Last Name"
             type="text"
             className="form-control"
             id="lastName"
@@ -71,8 +74,9 @@ function Register() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label hidden htmlFor="email">Email</label>
           <input
+            placeholder="Email"
             type="text"
             className="form-control"
             id="email"
@@ -81,8 +85,9 @@ function Register() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label hidden htmlFor="password">Password</label>
           <input
+            placeholder="Create Password"
             type="password"
             className="form-control"
             id="password"

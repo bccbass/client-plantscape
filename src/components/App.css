@@ -5,6 +5,22 @@
   text-align: center;
 }
 
+.form-group {
+  padding: 0.5rem;
+  width: 22rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-select {
+  padding: 0.4rem;
+  width: 21rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-indent: 1.5%;
+  margin-top: 0.5rem;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

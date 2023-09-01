@@ -49,10 +49,12 @@ const NewArea = ({ user, setUser }) => {
   return (
     <div>
       <h3>Create New Area</h3>
+      <p>An Area is a smaller place for your plants to call home! All Areas belong to a Space.</p>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label hidden htmlFor="name">Name</label>
           <input
+            placeholder="Name of Area (e.g. Vege Garden, Kitchen)"
             type="text"
             className="form-control"
             id="name"
@@ -61,8 +63,9 @@ const NewArea = ({ user, setUser }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Notes</label>
+          <label hidden htmlFor="name">Notes</label>
           <input
+            placeholder="Notes"
             type="text"
             className="form-control"
             id="notes"
@@ -75,7 +78,7 @@ const NewArea = ({ user, setUser }) => {
           className="form-select form-select-me"
           aria-label="Small select example" id="space"
         >
-          <option value="Select Space"> -- Select Space -- </option>
+          <option value="" disabled selected>Select Space</option>
           {(user?.spaces || []).map((space, index) => (
             <option key={index} value={space.name}>
               {space.name}
