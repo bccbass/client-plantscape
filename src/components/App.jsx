@@ -6,7 +6,7 @@ import Login from './Login.jsx'
 import Register from './Register.jsx'
 import NewSpace from './NewSpace.jsx'
 import EditSpace from './EditSpace.jsx'
-import NewArea from './NewArea.jsx'
+import NewArea from './NewArea/NewArea.jsx'
 import NavBar from './NavBar'
 import AltNavBar from './AltNavBar.jsx'
 import Auth from './Auth.jsx'
@@ -16,6 +16,7 @@ import SpaceView from './SpaceView'
 import NotFound from './NotFound.jsx'
 import SpaceSelectionAlt from './SpaceSelectionAlt.jsx'
 import Space from './Space'
+import Footer from './Footer.jsx'
 
 
 
@@ -48,6 +49,7 @@ function SpaceViewWrapper() {
 
         <Route path="/*" element={<NotFound />} />
       </Routes>
+      < Footer />
     </>
   )
 }

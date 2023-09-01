@@ -17,7 +17,7 @@ const NewSpace = ({ user, setUser }) => {
     });
   }
 
-  async function onSubmit(e) {
+  async function onSubmit(e, navDestination) {
     e.preventDefault();
 
     const newSpace = {
@@ -35,13 +35,14 @@ const NewSpace = ({ user, setUser }) => {
       setForm({ name: "", notes: "", location: "" })
     }
     updateUser(user)
+    navigate(navDestination)
   }
 
   return (
     <div>
       <h3>Create New Space</h3>
       <p>A Space is just a big place to group your areas and plants in!</p>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={(e) => onSubmit(e, '/')}>
         <div className="form-group">
           <label hidden htmlFor="name">Name</label>
           <input

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import {upperCaser} from './helperfuncs.js'
 import AreaList from './AreaList.jsx'
 import EditSpace from './EditSpace.jsx'
-
-const styles = { maxWidth: '540px', color: 'grey'}
+import AreaListTest from './AreaListTest.jsx'
+import { useNavigate } from 'react-router-dom'
 
 const Space = ({user, setUser, space, plants}) => {
   const [showComponent, setShowComponent] = useState(false)
@@ -12,6 +12,10 @@ const Space = ({user, setUser, space, plants}) => {
     setShowComponent(true)
   }
 
+  const styles = { maxWidth: '540px', color: 'grey'}
+
+  const navigate = useNavigate()
+  
   return <>
     <div>Space.jsx</div>
     <div className="card mb-3" style={styles}>
@@ -27,6 +31,7 @@ const Space = ({user, setUser, space, plants}) => {
           <p className="card-text">{space.notes}</p>
         </div>
       {/* <AreaList areas={space.areas} plants={plants}/> */}
+      <button className="btn btn-success" onClick={e => {navigate('/newarea')}}>Add Area</button>
     </div>
   </div>
 </div>

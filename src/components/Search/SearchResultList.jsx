@@ -3,20 +3,15 @@ import PlantPreview from "./PlantPreview.jsx";
 import {upperCaser} from '../helperfuncs.js'
 
 
-const SearchResultList = ({ user, setUser, searchResults, setActive }) => {
-  const [querySelection, setQuerySelection] = useState(false);
+const SearchResultList = ({ user, setUser, searchResults, setQuerySelection}) => {
   
-  useEffect(() =>  { if (querySelection) { 
-  setActive(<PlantPreview plant={querySelection} user={user} setUser={setUser} setActive={setActive}/>)}
-}, [querySelection])
-
 
 
   return (
     <>
-      {searchResults[0] && <h6 className="text-secondary"><em>Search results...</em></h6>}
-      <ul  className="list-group" style={{ maxWidth: "200px" }}>
-        {searchResults[0] &&
+      {(searchResults && searchResults[0]) && <h6 className="text-secondary"><em>Search results...</em></h6>}
+      <ul  className="list-group list-group-horizontal" >
+        {(searchResults && searchResults[0]) &&
           searchResults.map((res, i) => (
             <li
               style={{ border: "none" }}

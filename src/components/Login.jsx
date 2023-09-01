@@ -2,7 +2,7 @@ import './Login.css'
 import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import AltNavBar from './AltNavBar.jsx'
+import Loading from './Loading.jsx'
 import {  retrieveToken, storeToken, getUser} from './loginfunctions.js'
 import { redirect, useNavigate } from 'react-router-dom'
 
@@ -10,6 +10,7 @@ function Login({setUser}) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [token, setToken] = useState({})
+  let [clicked, setClicked] = useState (false)
   const navigate = useNavigate()
   let message = ''
 
@@ -20,6 +21,7 @@ function Login({setUser}) {
 
   function handleSubmit(event) {
     event.preventDefault()
+    setClicked(true)
     retrieveToken(setToken, {email, password })
   }
 
@@ -31,7 +33,7 @@ function Login({setUser}) {
 
   return (<>
     <div className="Login">
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className='mb-3'>
         <Form.Group size="lg" controlId="email">
           <Form.Label className="Label">Email</Form.Label>
           <Form.Control
@@ -54,6 +56,7 @@ function Login({setUser}) {
           Login
         </Button>
       </Form>
+      {clicked && < Loading />}
     </div>
     </>
   );

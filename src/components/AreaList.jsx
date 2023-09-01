@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import {upperCaser} from './helperfuncs.js'
-import Area from "./Area.jsx";
+import Area from "./Area.jsx"
 
 
 const style = {
@@ -21,6 +21,7 @@ const AreaList = ({areas, plants}) => {
       {areas.length === 0 ? (
         
         <p>Sorry, no areas registered yet to this space. Nothing to display!</p>
+        // add link to the NewArea component here
       ) : (
           <div className="list-group">
             {areas.map((area) => {
@@ -35,7 +36,7 @@ const AreaList = ({areas, plants}) => {
                     setAreaSelect(area);
                   }}
                 >
-                  {upperCaser(area.name)}
+                  {area.name}
                 </a>
               )
             })}
