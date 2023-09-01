@@ -3,8 +3,11 @@ import apiURL from "../getAPI.js";
 
 const SearchBar = ({ searchResults, setSearchResults }) => {
   const [query, setQuery] = useState([]);
+  const [submittedQuery, setSubmittedQuery] = useState('');
 
   const user = JSON.parse(localStorage.getItem("user"));
+
+  let submittedQueryValue = 'hold2'
 
   const queryPlants = async (query) => {
     const result = await fetch(`${apiURL}/plants?q=${query}`, {
@@ -27,7 +30,10 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
         className="input-group mb-3 mt-2"
         onSubmit={(e) => {
           e.preventDefault();
+          console.log(submittedQuery, 'preupdate')
+          setSubmittedQuery(query)
           setQuery('')
+          console.log(submittedQuery,'post set')
           queryPlants(query);
         }}
       >
@@ -35,7 +41,10 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
           type="text"
           className="form-control"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            let val = e.target.value
+            setQuery(val)
+          }}
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
           id="searchBar"
@@ -53,7 +62,7 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
       <div>
         {searchResults && !searchResults.length && (
           <h6 className="text-secondary">
-            <em>No results for "{query}"</em>
+            <em>No results for "{submittedQuery}"</em>
           </h6>
         )}
       </div>

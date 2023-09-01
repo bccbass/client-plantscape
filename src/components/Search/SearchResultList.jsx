@@ -7,7 +7,7 @@ const SearchResultList = ({ user, setUser, searchResults, setActive }) => {
   const [querySelection, setQuerySelection] = useState(false);
   
   useEffect(() =>  { if (querySelection) { 
-  setActive(<PlantPreview plant={querySelection} user={user} setUser={setUser} setActive={setActive}/>), [querySelection]}
+  setActive(<PlantPreview plant={querySelection} user={user} setUser={setUser} setActive={setActive}/>)}
 }, [querySelection])
 
 
