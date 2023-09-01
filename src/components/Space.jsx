@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {upperCaser} from './helperfuncs.js'
 import AreaList from './AreaList.jsx'
+import EditSpace from './EditSpace.jsx'
 import AreaListTest from './AreaListTest.jsx'
 import { useNavigate } from 'react-router-dom'
 
-const styles = { maxWidth: '540px', color: 'grey'}
+const Space = ({user, setUser, space, plants}) => {
+  const [showComponent, setShowComponent] = useState(false)
 
-const Space = ({space, plants}) => {
+  const handleClick = () => {
+    setShowComponent(true)
+  }
+
+  const styles = { maxWidth: '540px', color: 'grey'}
+
   const navigate = useNavigate()
+  
   return <>
     <div>Space.jsx</div>
     <div className="card mb-3" style={styles}>
@@ -17,7 +25,7 @@ const Space = ({space, plants}) => {
       </div>
       <div className="col-md-8">
         <div className="card-body">
-          <h5 className="card-title">{upperCaser(space.name)}</h5>
+          <h5 className="card-title">{space.name}</h5>
           {/* <p className="card-text"><small className="text-body-secondary">{plant.scientific_name}</small></p> */}
 
           <p className="card-text">{space.notes}</p>
@@ -27,7 +35,12 @@ const Space = ({space, plants}) => {
     </div>
   </div>
 </div>
-<AreaListTest areas={space.areas} plants={plants}/>
+<div className="form-group">
+  <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-primary" />
+  {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
+</div>
+<AreaList areas={space.areas} plants={plants}/>
+
 </>
 }
 

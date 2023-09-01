@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { updateUser } from './helperfuncs.js'
 
-const NewSpace = ({ user, setUser }) => {
+const EditSpace = ({ space, user, setUser }) => {
   const [form, setForm] = useState({
-    name: "",
-    notes: "",
-    location: "",
+    name: space.name,
+    notes: space.notes,
+    location: space.location,
   });
 
   const navigate = useNavigate();
@@ -17,37 +17,36 @@ const NewSpace = ({ user, setUser }) => {
     });
   }
 
-  async function onSubmit(e, navDestination) {
+  async function onSubmit(e) {
     e.preventDefault();
 
-    const newSpace = {
+    const editedSpace = {
       name: form.name,
       notes: form.notes,
       location: form.location,
     }
-    
-    if (user.spaces.find((space) => space.name === newSpace.name)) {
-      window.alert("That space already exists!")
+
+    if (space.name !== editedSpace.name || space.notes !== editedSpace.notes || space.location !== editedSpace.location) {
+      space.name = editedSpace.name
+      space.notes = editedSpace.notes
+      space.location = editedSpace.location
     } else {
-      let userCopy = { ...user };
-      userCopy.spaces.push(newSpace);
-      setUser(userCopy);
-      setForm({ name: "", notes: "", location: "" })
+      window.alert("Please make an edit to the Space details.")
     }
-    updateUser(user)
-    navigate(navDestination)
+            
+      let userCopy = { ...user }
+      setUser(userCopy);
+      updateUser(user)
   }
 
   return (
     <div>
-      <h3>Create New Space</h3>
-      <p>A Space is just a big place to group your areas and plants in!</p>
-      <form onSubmit={(e) => onSubmit(e, '/')}>
+      <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label hidden htmlFor="name">Name</label>
+          <label hidden htmlFor="name" >Name</label>
           <input
-            placeholder="Name of Space (e.g. Front Yard, House)"
             type="text"
+            placeholder={`Edit Name - ${space.name}`}
             className="form-control"
             id="name"
             value={form.name}
@@ -57,8 +56,8 @@ const NewSpace = ({ user, setUser }) => {
         <div className="form-group">
           <label hidden htmlFor="name">Notes</label>
           <input
-            placeholder="Notes"
             type="text"
+            placeholder={`Edit Notes - ${space.notes}`}
             className="form-control"
             id="notes"
             value={form.notes}
@@ -96,11 +95,11 @@ const NewSpace = ({ user, setUser }) => {
           </div>
         </div>
         <div className="form-group">
-          <input type="submit" value="Add Space" className="btn btn-primary" />
+          <input type="submit" value="Confirm" className="btn btn-primary" />
         </div>
       </form>
     </div>
   );
 };
 
-export default NewSpace;
+export default EditSpace;

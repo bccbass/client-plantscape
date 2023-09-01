@@ -1,20 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import apiURL from "./getAPI.js";
-
-const updateUser = async (user) => {
-  await fetch(`${apiURL}/users/${user._id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.user).token}`,
-    },
-    body: JSON.stringify(user),
-  }).catch((error) => {
-    window.alert(error);
-    return;
-  });
-};
+import { updateUser } from './helperfuncs.js'
 
 const NewArea = ({ user, setUser }) => {
   const [form, setForm] = useState({
@@ -39,7 +25,7 @@ const NewArea = ({ user, setUser }) => {
 
     for (let i of user.spaces) {
       if (i.areas.find((area) => area.name === form.name )) {
-        window.alert("That area already exists");
+        window.alert("That area already exists")
       } else {
         userCopy = { ...user };
         index = userCopy.spaces.findIndex((spaces) => spaces.name === form.space)
@@ -51,22 +37,22 @@ const NewArea = ({ user, setUser }) => {
       notes: form.notes
     }
 
-    // console.log(newArea)
     userCopy.spaces[index].areas.push(newArea)
-    setUser(userCopy);
-    setForm({ name: "", notes: "", space: "" });
-    // console.log(userCopy.spaces[index].areas)
+    setUser(userCopy)
+    updateUser(user); 
+    setForm({ name: "", notes: "", space: "" })
+    navigate("/")
   }
-
-  updateUser(user);  
 
   return (
     <div>
       <h3>Create New Area</h3>
+      <p>An Area is a smaller place for your plants to call home! All Areas belong to a Space.</p>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label hidden htmlFor="name">Name</label>
           <input
+            placeholder="Name of Area (e.g. Vege Garden, Kitchen)"
             type="text"
             className="form-control"
             id="name"
@@ -75,8 +61,9 @@ const NewArea = ({ user, setUser }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Notes</label>
+          <label hidden htmlFor="name">Notes</label>
           <input
+            placeholder="Notes"
             type="text"
             className="form-control"
             id="notes"
@@ -89,7 +76,7 @@ const NewArea = ({ user, setUser }) => {
           className="form-select form-select-me"
           aria-label="Small select example" id="space"
         >
-          <option value="Select Space"> -- Select Space -- </option>
+          <option value="" disabled selected>Select Space</option>
           {(user?.spaces || []).map((space, index) => (
             <option key={index} value={space.name}>
               {space.name}
