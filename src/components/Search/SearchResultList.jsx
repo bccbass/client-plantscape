@@ -9,9 +9,9 @@ const SearchResultList = ({ user, setUser, searchResults, setQuerySelection}) =>
 
   return (
     <>
-      {searchResults[0] && <h6 className="text-secondary"><em>Search results...</em></h6>}
-      <ul  className="list-group" style={{ maxWidth: "200px" }}>
-        {searchResults[0] &&
+      {(searchResults && searchResults[0]) && <h6 className="text-secondary"><em>Search results...</em></h6>}
+      <ul  className="list-group list-group-horizontal" >
+        {(searchResults && searchResults[0]) &&
           searchResults.map((res, i) => (
             <li
               style={{ border: "none" }}
