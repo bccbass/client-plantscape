@@ -1,6 +1,7 @@
 import React from 'react'
 import {upperCaser} from './helperfuncs.js'
 import AreaList from './AreaList.jsx'
+import EditSpaceButton from './EditSpaceButton.jsx'
 
 const styles = { maxWidth: '540px', color: 'grey'}
 
@@ -23,7 +24,9 @@ const Space = ({space, plants}) => {
     </div>
   </div>
 </div>
+<EditSpaceButton />
 <AreaList areas={space.areas} plants={plants}/>
+
 </>
 }
 

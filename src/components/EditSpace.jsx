@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { updateUser } from './helperfuncs.js'
 
-const NewSpace = ({ user, setUser }) => {
+const EditSpace = ({ user, setUser }) => {
   const [form, setForm] = useState({
     name: "",
     notes: "",
@@ -20,7 +20,7 @@ const NewSpace = ({ user, setUser }) => {
   async function onSubmit(e) {
     e.preventDefault();
 
-    const newSpace = {
+    const editedSpace = {
       name: form.name,
       notes: form.notes,
       location: form.location,
@@ -42,7 +42,7 @@ const NewSpace = ({ user, setUser }) => {
       <h3>Edit Space</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name" >Name</label>
+          <label hidden htmlFor="name" >Name</label>
           <input
             type="text"
             placeholder="Edit Name"
@@ -53,7 +53,7 @@ const NewSpace = ({ user, setUser }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Notes</label>
+          <label hidden htmlFor="name">Notes</label>
           <input
             type="text"
             placeholder="Edit Notes"
@@ -101,4 +101,4 @@ const NewSpace = ({ user, setUser }) => {
   );
 };
 
-export default NewSpace;
+export default EditSpace;
