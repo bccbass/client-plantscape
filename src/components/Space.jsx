@@ -39,7 +39,7 @@ const Space = ({user, setUser, space, plants}) => {
   <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-primary" />
   {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
 </div>
-<AreaList areas={space.areas} plants={plants}/>
+<AreaListTest areas={space.areas} plants={plants}/>
 
 </>
 }
