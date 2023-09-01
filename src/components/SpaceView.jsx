@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 const SpaceView = ({space}) => {
   console.log(space) // REMEMBER TO REMOVE THIS LINE!
   return space ? <>
-    <NavBar />
     <h1>Areas in {space.name}</h1>
     <p>This is the view of all the areas for the space called {space.name}</p>
     <Card style={{ width: '18rem' }}>
@@ -29,7 +28,7 @@ const SpaceView = ({space}) => {
         ))}
       </ListGroup>
       <Card.Body>
-        <Link to="/space/all">See all of your spaces</Link>
+        <Link to="/space">See all of your spaces</Link>
       </Card.Body>
       <Card.Body>
         <Link to={`area/new`}>Add a new area</Link>

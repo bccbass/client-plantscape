@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import apiURL from "../getAPI.js"
+import apiURL from "../getAPI.js";
 
-
-const SearchBar = ({setSearchResults}) => {
+const SearchBar = ({ searchResults, setSearchResults }) => {
   const [query, setQuery] = useState([]);
+  const [submittedQuery, setSubmittedQuery] = useState('');
 
   const user = JSON.parse(localStorage.getItem("user"));
+
+  let submittedQueryValue = 'hold2'
 
   const queryPlants = async (query) => {
     const result = await fetch(`${apiURL}/plants?q=${query}`, {
@@ -14,64 +16,56 @@ const SearchBar = ({setSearchResults}) => {
         Authorization: `Bearer ${user.token}`,
       },
     });
-    const parsedResult = await result.json()
+    const parsedResult = await result.json();
     const filteredResult = parsedResult
-    .filter((el) => el.common_name.includes(query))
-    .slice(0, 6);
+      .filter((el) => el.common_name.includes(query))
+      .slice(0, 6);
     setSearchResults(filteredResult);
   };
 
   return (
     <>
-      <form style={{width: '100%'}} className="input-group mb-3 mt-2 ">
+      <form
+        style={{ width: "100%" }}
+        className="input-group mb-3 mt-2"
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log(submittedQuery, 'preupdate')
+          setSubmittedQuery(query)
+          setQuery('')
+          console.log(submittedQuery,'post set')
+          queryPlants(query);
+        }}
+      >
         <input
           type="text"
           className="form-control"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            let val = e.target.value
+            setQuery(val)
+          }}
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
           id="searchBar"
           placeholder="Search plants..."
         />
         <label htmlFor="searchBar"></label>
-        <button
-          type="button"
+        <input
+          type="submit"
           className="btn btn-primary "
           id="basic-addon2"
-          onClick={(e) => {
-            e.preventDefault();
-            queryPlants(query);
-          }}
-        >
-          Search
-        </button>
+          alue="Add Area"
+        />
       </form>
 
-        <div>
-          {/* < SearchResultList searchResults={searchResults}/> */}
-          {/* {querySelection ? (
-            <div class="card w-75">
-              <img
-                src={querySelection.default_image.medium_url}
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">{querySelection.common_name}</h5>
-                <div class="card-text">
-                  <p> Watering: {querySelection.watering}</p>{" "}
-                  <p>sunlight: {querySelection.sunlight}</p>
-                </div>
-                <a href="#" class="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-            </div>
-          ) : (
-            <h1></h1>
-          )} */}
-        </div>
+      <div>
+        {searchResults && !searchResults.length && (
+          <h6 className="text-secondary">
+            <em>No results for "{submittedQuery}"</em>
+          </h6>
+        )}
+      </div>
     </>
   );
 };
