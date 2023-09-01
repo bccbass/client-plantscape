@@ -16,9 +16,7 @@ const AddPlants = ({ user, setUser, area, space }) => {
     }
     console.log("from use effect", newPlants);
   }, [querySelection]);
-  // const [thisArea, setThisArea] = useState();
-  // // console.log(user.spaces[0].areas[0].name)
-  // console.log(area);
+
   useEffect(() => {
     let spaceFromUser =
       user?.spaces && user.spaces.filter((el) => el.name == area.space)[0];
