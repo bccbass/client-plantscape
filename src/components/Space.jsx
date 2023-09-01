@@ -21,7 +21,7 @@ const Space = ({user, setUser, space, plants}) => {
       </div>
       <div className="col-md-8">
         <div className="card-body">
-          <h5 className="card-title">{upperCaser(space.name)}</h5>
+          <h5 className="card-title">{space.name}</h5>
           {/* <p className="card-text"><small className="text-body-secondary">{plant.scientific_name}</small></p> */}
 
           <p className="card-text">{space.notes}</p>
@@ -32,7 +32,7 @@ const Space = ({user, setUser, space, plants}) => {
 </div>
 <div className="form-group">
   <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-primary" />
-  {showComponent && <EditSpace space={space} />}
+  {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
 </div>
 <AreaList areas={space.areas} plants={plants}/>
 

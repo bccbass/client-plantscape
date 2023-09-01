@@ -3,11 +3,10 @@ import { useNavigate } from "react-router";
 import { updateUser } from './helperfuncs.js'
 
 const EditSpace = ({ space, user, setUser }) => {
-  console.log(user)
   const [form, setForm] = useState({
-    name: "",
-    notes: "",
-    location: "",
+    name: space.name,
+    notes: space.notes,
+    location: space.location,
   });
 
   const navigate = useNavigate();
@@ -28,14 +27,16 @@ const EditSpace = ({ space, user, setUser }) => {
     }
 
     if (space.name !== editedSpace.name || space.notes !== editedSpace.notes || space.location !== editedSpace.location) {
-      let userCopy = { ...user }
-      userCopy.spaces.push(editedSpace)
-      setUser(userCopy);
-      setForm({ name: "", notes: "", location: "" })
+      space.name = editedSpace.name
+      space.notes = editedSpace.notes
+      space.location = editedSpace.location
     } else {
       window.alert("Please make an edit to the Space details.")
     }
-    updateUser(user)
+            
+      let userCopy = { ...user }
+      setUser(userCopy);
+      updateUser(user)
   }
 
   return (
@@ -45,7 +46,7 @@ const EditSpace = ({ space, user, setUser }) => {
           <label hidden htmlFor="name" >Name</label>
           <input
             type="text"
-            placeholder={`Edit Name - "${space.name}"`}
+            placeholder={`Edit Name - ${space.name}`}
             className="form-control"
             id="name"
             value={form.name}
@@ -56,7 +57,7 @@ const EditSpace = ({ space, user, setUser }) => {
           <label hidden htmlFor="name">Notes</label>
           <input
             type="text"
-            placeholder={`Edit Notes - "${space.notes}"`}
+            placeholder={`Edit Notes - ${space.notes}`}
             className="form-control"
             id="notes"
             value={form.notes}
