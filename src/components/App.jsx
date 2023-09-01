@@ -13,7 +13,7 @@ import { Routes, Route, useParams } from 'react-router-dom'
 import SpaceSelection from './SpaceSelection'
 import SpaceView from './SpaceView'
 import NotFound from './NotFound.jsx'
-import SpaceSelectionAlt from './SpaceSelectionAlt'
+import SpaceSelectionAlt from './SpaceSelectionAlt.jsx'
 
 
 
@@ -24,7 +24,7 @@ const [plants, setPlants] = useState([])
 
 function SpaceViewWrapper() {
   const { spaceIndex } = useParams()
-  return <SpaceView space={user.spaces[spaceIndex]} plants={plants} />
+  return <Space space={user.spaces[spaceIndex]} plants={plants} />
 }
 
   return (
