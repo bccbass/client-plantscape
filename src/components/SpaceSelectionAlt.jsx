@@ -11,7 +11,7 @@ const style = {
 const SpaceSelectionAlt = ({  user, plants }) => {
   return (
     <>
-      <h1>{user.firstName}'s spaces</h1>
+      <h1>{user.firstName}'s Spaces</h1>
       <SpaceListAlt spaces={user.spaces} plants={plants} />
       {/* <div>
 
