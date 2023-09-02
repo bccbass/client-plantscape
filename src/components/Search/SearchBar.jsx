@@ -7,7 +7,6 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
 
   const user = JSON.parse(localStorage.getItem("user"))
 
-  let submittedQueryValue = 'hold2'
 
   const queryPlants = async (query) => {
     const result = await fetch(`${apiURL}/plants?q=${query}`, {

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
-import NewAreaForm from "./NewAreaForm.jsx"
-import AddPlants from "./AddPlants.jsx"
+import React, { useState, useEffect } from "react";
+import NewAreaForm from "./NewAreaForm.jsx";
+import AddPlants from "./AddPlants.jsx";
 
 const NewArea = ({ user, setUser }) => {
-  const [formSubmit, setFormSubmit] = useState(false)
-  const [area, setArea] = useState({ space: "Front Yard", name: "Verandah" })
+  const [formSubmit, setFormSubmit] = useState(false);
+  const [area, setArea] = useState();
 
   return (
     <>
@@ -19,7 +19,7 @@ const NewArea = ({ user, setUser }) => {
         <AddPlants area={area} user={user} setUser={setUser} />
       )}
     </>
-  )
-}
+  );
+};
 
-export default NewArea
+export default NewArea;

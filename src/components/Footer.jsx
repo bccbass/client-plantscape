@@ -1,7 +1,7 @@
 import React from 'react'
 
 const style = {
-color: 'grey',
+color: '#D3D3D3',
 fontSize: '.9rem',
 position: 'fixed',
 left: 0,

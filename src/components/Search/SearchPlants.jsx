@@ -17,19 +17,20 @@ const SearchPlants = ({
   setActive,
   orientation,
   searchResults,
-  setSearchResults
+  setSearchResults,
 }) => {
   useEffect(() => {
-    setActive(
-      <SearchResultList
-        searchResults={searchResults}
-        user={user}
-        setUser={setUser}
-        setQuerySelection={setQuerySelection}
-        orientation={orientation}
-        setActive={setActive}
-      />
-    );
+    setActive &&
+      setActive(
+        <SearchResultList
+          searchResults={searchResults}
+          user={user}
+          setUser={setUser}
+          setQuerySelection={setQuerySelection}
+          orientation={orientation}
+          setActive={setActive}
+        />
+      );
   }, [searchResults]);
 
   return (
@@ -39,14 +40,16 @@ const SearchPlants = ({
           searchResults={searchResults}
           setSearchResults={setSearchResults}
         />
-        {/* <SearchResultList
-          searchResults={searchResults}
-          user={user}
-          setUser={setUser}
-          setQuerySelection={setQuerySelection}
-          orientation={orientation}
-          setActive={setActive}
-        /> */}
+        {!setActive && (
+          <SearchResultList
+            searchResults={searchResults}
+            user={user}
+            setUser={setUser}
+            setQuerySelection={setQuerySelection}
+            orientation={orientation}
+            setActive={setActive}
+          />
+        )}
       </div>
     </>
   );
