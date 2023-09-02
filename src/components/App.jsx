@@ -18,6 +18,7 @@ import SpaceSelectionAlt from './SpaceSelectionAlt.jsx'
 import Space from './Space'
 import Footer from './Footer.jsx'
 import AddToPlantList from './AddToPlantList'
+import About from './About.jsx'
 
 function App() {
 const [user, setUser] = useState({})
@@ -45,10 +46,11 @@ function SpaceViewWrapper() {
         <Route path="/editspace" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><EditSpace user={user} setUser={setUser}/></Auth>} />
         <Route path="/newarea" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><NewArea user={user} setUser={setUser}/></Auth>} />
         <Route path="/addplants" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><AddToPlantList user={user} setUser={setUser}/></Auth>} />
+        <Route path="/about" element={<Auth><About /></Auth>} />
 
         <Route path="/*" element={<NotFound />} />
       </Routes>
-      < Footer />
+      < Footer /> 
     </>
   )
 }

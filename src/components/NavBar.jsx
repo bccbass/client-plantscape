@@ -47,6 +47,9 @@ const NavBar = () => {
             <Link className="nav-link" href="#" to="/myplants">
               My Plants
             </Link>
+            <Link className="nav-link" href="#" to="/about">
+              About
+            </Link>
             <div>
           <LogoutButton  />
         </div>

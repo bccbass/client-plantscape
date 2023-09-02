@@ -6,13 +6,15 @@ import Loading from "./Loading.jsx";
 import { Link } from "react-router-dom";
 import logo from "../assets/anotherLogo.svg";
 import "./HomeStyle.css";
+import Title from './Title.jsx'
 
 const Home = ({ user, plants }) => {
   return (
     <>
+      <Title />
       {user && user?.spaces ? (
         <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={logo} />
+          {/* <Card.Img variant="top" src={logo} /> */}
           <Card.Body>
             <Card.Title>Welcome, {user.firstName}!</Card.Title>
             {/* <Card.Text>
