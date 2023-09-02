@@ -106,7 +106,7 @@ const NewSpace = ({ user, setUser }) => {
           </div>
         </div>
         <div className="form-group">
-          <input type="submit" value="Add Space" className="btn btn-primary" />
+          <input type="submit" value="Add Space" className="btn btn-success" />
         </div>
       </form>
     </div>

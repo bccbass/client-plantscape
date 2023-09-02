@@ -24,30 +24,33 @@ const Space = ({ user, setUser, space, plants, spaceIndex }) => {
   
   return <>
     <div className="card mb-3" style={styles}>
-    <div className="row g-0">
-      <div className="col-md-4">
-        <img src={space.imgUrl} className="img-fluid rounded-start" alt="image of selected space goes here"/>
-      </div>
-      <div className="col-md-8">
-        <div className="card-body">
-          <h5 className="card-title">{space.name}</h5>
-          {/* <p className="card-text"><small className="text-body-secondary">{plant.scientific_name}</small></p> */}
-
-          <p className="card-text">{space.notes}</p>
+      <div className="row g-0">
+        <div className="col-md-4">
+          <img src={space.imgUrl} className="img-fluid rounded-start" alt="image of selected space goes here"/>
         </div>
-      <button className="btn btn-success" onClick={e => {navigate('/newarea')}}>Add Area</button>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h5 className="card-title">{space.name}</h5>
+            <p className="card-text">{space.notes}</p>
+            {/* the following 3 lines are the Edit Space and Delete Space buttons */}
+            <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-success" />
+            {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
+            <input type="submit" onClick={deleteSpace} value={`Delete ${space.name}`} className="btn btn-success" />
+          </div>
+          <button className="btn btn-success" onClick={e => {navigate('/newarea')}}>Add an Area to {space.name}</button>
+        </div>  
+      </div>
     </div>
-  </div>
-</div>
-<AreaList user={user} areas={space.areas} plants={plants}/>
-<div className="form-group">
+    <AreaList user={user} areas={space.areas} plants={plants}/>
+{/* TEST moved EditSpace and DeleteSpace up and underneath Notes for the Space */}
+{/* <div className="form-group">
   <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-success" />
   {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
 </div>
 <div className="form-group">
   <input type="submit" onClick={deleteSpace} value={`Delete ${space.name}`} className="btn btn-success" />
-</div>
-</>
+</div> */}
+  </>
 }
 
 export default Space
