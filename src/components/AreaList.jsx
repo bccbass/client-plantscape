@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import {upperCaser} from './helperfuncs.js'
 import Area from "./Area.jsx"
 
 
@@ -45,7 +44,7 @@ const AreaList = ({ user, areas, plants}) => {
           
       )}
       </div>
-      {areaSelect && < area={areaSelect} plants={plants} />}
+      {areaSelect && < Area area={areaSelect} plants={plants} />}
     </>
   )
 }
