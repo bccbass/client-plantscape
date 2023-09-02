@@ -14,7 +14,6 @@ const SpaceList = ({spaces, plants}) => {
     const [spaceSelect, setSpaceSelect] = useState();
     return (
     <>
-        <div>SpaceList.jsx</div>
         <div style={style} className="container">
 
       {spaces.length === 0 ? (
