@@ -20,7 +20,7 @@ describe("NavBar Component", () => {
   it("Renders the NavBar component", () => {
     expect(container.querySelector("nav")).not.toBeNull()
     expect(container.querySelector("nav")).toHaveTextContent("Home")
-    expect(container.querySelector("nav")).toHaveTextContent("My Garden")
+    expect(container.querySelector("nav")).toHaveTextContent("My Spaces")
     expect(container.querySelector("nav")).toHaveTextContent("My Plants")
   })
 

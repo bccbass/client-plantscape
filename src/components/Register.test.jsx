@@ -19,7 +19,7 @@ describe("Register Component", () => {
   it("Renders the Register component", () => {
     expect(container.querySelector("form")).not.toBeNull()
     expect(container.querySelector("form")).toHaveTextContent("Email")
-    expect(container.querySelector("h3")).toHaveTextContent("New User Registration")
+    expect(container.querySelector("h3")).toHaveTextContent("Welcome to Plantscape")
   })
 
   it('Shows form details', () => {
