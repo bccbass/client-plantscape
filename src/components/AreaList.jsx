@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import {upperCaser} from './helperfuncs.js'
 import Area from "./Area.jsx"
 
 
@@ -10,7 +9,7 @@ const style = {
   justifyContent: 'space-between'
 }
 
-const AreaList = ({areas, plants}) => {
+const AreaList = ({ user, areas, plants}) => {
     const [areaSelect, setAreaSelect] = useState();
 
     return (
@@ -45,7 +44,7 @@ const AreaList = ({areas, plants}) => {
           
       )}
       </div>
-      {areaSelect && < Area area={areaSelect} plants={plants}/>}
+      {areaSelect && < Area area={areaSelect} plants={plants} />}
     </>
   )
 }

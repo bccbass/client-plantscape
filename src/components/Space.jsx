@@ -40,7 +40,7 @@ const Space = ({ user, setUser, space, plants, spaceIndex }) => {
     </div>
   </div>
 </div>
-<AreaListTest areas={space.areas} plants={plants}/>
+<AreaListTest user={user} areas={space.areas} plants={plants}/>
 <div className="form-group">
   <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-primary" />
   {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}

@@ -19,9 +19,6 @@ import Space from './Space'
 import Footer from './Footer.jsx'
 import AddToPlantList from './AddToPlantList'
 
-
-
-
 function App() {
 const [user, setUser] = useState({})
 const [plants, setPlants] = useState([])
