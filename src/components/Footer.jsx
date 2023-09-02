@@ -3,7 +3,7 @@ const style = {
 color: 'grey',
 fontSize: '.9rem',
 position: 'fixed',
-backgroundColor: 'white',
+// backgroundColor: 'white',
 left: 0,
 bottom: 0,
 width: '100%',
