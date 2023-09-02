@@ -51,7 +51,7 @@ function Login({setUser}) {
           />
         </Form.Group>
         <p>{message}</p>
-        <Button className="Button" block="true" size="lg" type="submit" >
+        <Button className="btn btn-success" block="true" size="lg" type="submit" >
           Login
         </Button>
       </Form>

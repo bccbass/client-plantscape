@@ -99,7 +99,7 @@ function Register() {
           <input
             type="submit"
             value="Register"
-            className="btn btn-primary"
+            className="btn btn-success"
           />
         </div>
       </form>
