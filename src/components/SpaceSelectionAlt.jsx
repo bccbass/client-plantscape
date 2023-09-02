@@ -1,5 +1,6 @@
-import React from "react";
-import SpaceList from "./SpaceList";
+import React from "react"
+import SpaceList from "./SpaceList"
+import SpaceListAlt from "./SpaceListAlt"
 
 const style = {
   display: "flex",
@@ -11,7 +12,7 @@ const SpaceSelectionAlt = ({  user, plants }) => {
   return (
     <>
       <h1>{user.firstName}'s spaces</h1>
-      <SpaceList spaces={user.spaces} plants={plants} />
+      <SpaceListAlt spaces={user.spaces} plants={plants} />
       {/* <div>
 
         <SearchPlants user={user} setUser={setUser}/>
