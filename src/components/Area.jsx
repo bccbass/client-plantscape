@@ -47,7 +47,7 @@ const Area = ({ user, area, plants }) => {
               {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
             </div> */}
             <div className="form-group">
-              <input type="submit" onClick={deleteArea} value={`Delete ${area.name}`} className="btn btn-primary" />
+              <input type="submit" onClick={deleteArea} value={`Delete ${area.name}`} className="btn btn-success" />
             </div>
           </div>
           {active}

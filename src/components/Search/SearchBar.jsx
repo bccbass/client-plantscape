@@ -53,7 +53,7 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
         <label htmlFor="searchBar"></label>
         <input
           type="submit"
-          className="btn btn-primary "
+          className="btn btn-success"
           id="basic-addon2"
           alue="Add Area"
         />

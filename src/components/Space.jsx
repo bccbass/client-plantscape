@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { updateUser } from './helperfuncs.js'
 import EditSpace from './EditSpace.jsx'
-import AreaListTest from './AreaListTest.jsx'
 import { useNavigate } from 'react-router-dom'
+import AreaList from './AreaList.jsx'
 
 const Space = ({ user, setUser, space, plants, spaceIndex }) => {
   const navigate = useNavigate()
@@ -35,18 +35,17 @@ const Space = ({ user, setUser, space, plants, spaceIndex }) => {
 
           <p className="card-text">{space.notes}</p>
         </div>
-      {/* <AreaList areas={space.areas} plants={plants}/> */}
       <button className="btn btn-success" onClick={e => {navigate('/newarea')}}>Add Area</button>
     </div>
   </div>
 </div>
-<AreaListTest user={user} areas={space.areas} plants={plants}/>
+<AreaList user={user} areas={space.areas} plants={plants}/>
 <div className="form-group">
-  <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-primary" />
+  <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-success" />
   {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
 </div>
 <div className="form-group">
-  <input type="submit" onClick={deleteSpace} value={`Delete ${space.name}`} className="btn btn-primary" />
+  <input type="submit" onClick={deleteSpace} value={`Delete ${space.name}`} className="btn btn-success" />
 </div>
 </>
 }

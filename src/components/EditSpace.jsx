@@ -101,7 +101,7 @@ const EditSpace = ({ space, user, setUser }) => {
           </div>
         </div>
         <div className="form-group">
-          <input type="submit" value="Confirm" className="btn btn-primary" />
+          <input type="submit" value="Confirm" className="btn btn-success" />
         </div>
       </form>
     </div>

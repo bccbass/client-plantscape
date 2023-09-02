@@ -94,7 +94,7 @@ const NewArea = ({ user, setUser }) => {
           ))}
         </select>
         <div className="form-group">
-          <input type="submit" value="Add Area" className="btn btn-primary" />
+          <input type="submit" value="Add Area" className="btn btn-success" />
         </div>
       </form>
     </div>
