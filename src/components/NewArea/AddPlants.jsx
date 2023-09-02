@@ -14,7 +14,6 @@ const AddPlants = ({ user, setUser, area, space }) => {
     if (querySelection && !newPlants.includes(querySelection)) {
       setNewPlants([...newPlants, querySelection]);
     }
-    console.log("from use effect", newPlants);
   }, [querySelection]);
 
   useEffect(() => {
@@ -46,14 +45,14 @@ const AddPlants = ({ user, setUser, area, space }) => {
   };
 
   const handleDeletePlant = (e) => {
-    console.log(newPlants);
+    // console.log(newPlants);
     const removeTargetPlant = newPlants.filter(
       (el) => el.common_name != e.target.value
     );
     setNewPlants(removeTargetPlant); // delete
   };
-  console.log("newPlants", newPlants);
-  console.log("user", user);
+  //console.log("newPlants", newPlants);
+  //console.log("user", user);
 
   return (
     <>
@@ -67,6 +66,7 @@ const AddPlants = ({ user, setUser, area, space }) => {
               user={user}
               setUser={setUser}
               setQuerySelection={setQuerySelection}
+              orientation='list-group-horizontal'
             />
             {/* 
              {console.log('query', querySelection)}
