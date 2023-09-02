@@ -1,17 +1,14 @@
-import React from "react";
-import { updateUser } from "../helperfuncs.js";
-import apiURL from "../getAPI";
+import React from "react"
+import { updateUser } from "../helperfuncs.js"
 
-const styles = { width: '300px', color: "grey" };
-
-
+const styles = { width: '300px', color: "grey" }
 
 const PlantPreview = ({ plant, user, setUser }) => {
   const handleOnClick = (e) => {
     e.preventDefault()
     if (!user.plants.includes(plant.id)) {
     let userCopy = { ...user }
-    userCopy.plants.push(plant.id);
+    userCopy.plants.push(plant.id)
     setUser(userCopy)
   }
   updateUser(user)
@@ -50,7 +47,6 @@ const PlantPreview = ({ plant, user, setUser }) => {
         <span className="mt-3"><em> Search Preview </em></span>
       </div>
     </>)
+}
 
-};
-
-export default PlantPreview;
+export default PlantPreview

@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import NavBar from "./NavBar.jsx";
 import Loading from "./Loading.jsx";
 import { Link } from "react-router-dom";
-import logo from "../assets/anotherLogo.svg";
-import "./HomeStyle.css";
 import Title from './Title.jsx'
 
 const Home = ({ user, plants }) => {

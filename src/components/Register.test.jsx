@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react'
 import Register from './Register.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
-import userEvent from '@testing-library/user-event'
 
 describe("Register Component", () => {
   let container

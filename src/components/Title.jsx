@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Reusable banner/picture for display purposes on Home and About pages
 function Title() {
   return (
     <div className="Title">

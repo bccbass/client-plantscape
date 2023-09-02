@@ -1,62 +1,55 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import SearchPlants from "../Search/SearchPlants.jsx";
-import { upperCaser, updateUser } from "../helperfuncs.js";
-import "./AddPlants.css";
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import SearchPlants from "../Search/SearchPlants.jsx"
+import { upperCaser, updateUser } from "../helperfuncs.js"
+import "./AddPlants.css"
 
 const AddPlants = ({ user, setUser, area, space }) => {
-  const navigate = useNavigate();
-  const [querySelection, setQuerySelection] = useState();
-  const [thisArea, setThisArea] = useState();
-  const [newPlants, setNewPlants] = useState([]);
+  const navigate = useNavigate()
+  const [querySelection, setQuerySelection] = useState()
+  const [thisArea, setThisArea] = useState()
+  const [newPlants, setNewPlants] = useState([])
 
   useEffect(() => {
     if (querySelection && !newPlants.includes(querySelection)) {
-      setNewPlants([...newPlants, querySelection]);
+      setNewPlants([...newPlants, querySelection])
     }
-  }, [querySelection]);
+  }, [querySelection])
 
   useEffect(() => {
     let spaceFromUser =
-      user?.spaces && user.spaces.filter((el) => el.name == area.space)[0];
+      user?.spaces && user.spaces.filter((el) => el.name == area.space)[0]
     let areaFromUser =
       spaceFromUser?.areas &&
-      spaceFromUser.areas.filter((el) => el.name == area.name)[0];
-    setThisArea(areaFromUser);
-    // console.log("user", user)
+      spaceFromUser.areas.filter((el) => el.name == area.name)[0]
+    setThisArea(areaFromUser)
   }, [user]);
 
   const handleAddPlantsClick = () => {
     let newPlantsIdArray = newPlants.map((el) => el.id)
     let spaceFromUser =
-      user?.spaces && user.spaces.filter((el) => el.name == area.space)[0];
+      user?.spaces && user.spaces.filter((el) => el.name == area.space)[0]
     let areaFromUser =
       spaceFromUser?.areas &&
-      spaceFromUser.areas.filter((el) => el.name == area.name)[0];
-    setThisArea(areaFromUser); 
+      spaceFromUser.areas.filter((el) => el.name == area.name)[0]
+    setThisArea(areaFromUser)
     areaFromUser.plants = newPlantsIdArray
     setUser(user.plants = [...new Set([...user.plants, ...newPlantsIdArray])])
-    // console.log("user plants", areaFromUser.plants);
-    // console.log("thisarea:", thisArea);
 
-    setUser(user);
-    updateUser(user);
-    navigate("/");
-  };
+    setUser(user)
+    updateUser(user)
+    navigate("/")
+  }
 
   const handleDeletePlant = (e) => {
-    // console.log(newPlants);
     const removeTargetPlant = newPlants.filter(
       (el) => el.common_name != e.target.value
-    );
-    setNewPlants(removeTargetPlant); // delete
-  };
-  //console.log("newPlants", newPlants);
-  //console.log("user", user);
+    )
+    setNewPlants(removeTargetPlant) // delete
+  }
 
   return (
     <>
-
       <div className="container w-75">
         <div className="card ">
           <h2 className="card-title">Add Plants to {area.name} </h2>

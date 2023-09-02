@@ -11,8 +11,6 @@ import NavBar from './NavBar'
 import AltNavBar from './AltNavBar.jsx'
 import Auth from './Auth.jsx'
 import { Routes, Route, useParams } from 'react-router-dom'
-import SpaceSelection from './SpaceSelection'
-import SpaceView from './SpaceView'
 import NotFound from './NotFound.jsx'
 import SpaceSelectionAlt from './SpaceSelectionAlt.jsx'
 import Space from './Space'
@@ -36,7 +34,6 @@ function SpaceViewWrapper() {
         <Route path="/login" element={<><Login setUser={setUser}/></>} />
         <Route path="/register" element={<><Register/></>} />
         <Route path="/myplants" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><MyPlants  user={user} setUser ={setUser} plants={plants}/></Auth>} />
-    
         <Route path="/" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><Home user={user} plants={plants}/></Auth>} />
         <Route path="/space/" user={user} setUser ={setUser} plants={plants} setPlants={setPlants}>
           <Route path="" element={<Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><SpaceSelectionAlt user={user} plants={plants} /></ Auth>} />
@@ -47,7 +44,6 @@ function SpaceViewWrapper() {
         <Route path="/newarea" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><NewArea user={user} setUser={setUser}/></Auth>} />
         <Route path="/addplants" element={< Auth user={user} setUser ={setUser} plants={plants} setPlants={setPlants}><AddToPlantList user={user} setUser={setUser}/></Auth>} />
         <Route path="/about" element={<Auth><About /></Auth>} />
-
         <Route path="/*" element={<NotFound />} />
       </Routes>
       < Footer /> 

@@ -1,14 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import LogoutButton from "./LogoutButton.jsx";
-import logo from "../assets/anotherLogo.svg";
+import React from "react"
+import { Link } from "react-router-dom"
+import LogoutButton from "./LogoutButton.jsx"
+import logo from "../assets/anotherLogo.svg"
 
-const style = {
-  marginBottom: "3rem",
-};
 const NavBar = () => {
   return (
-    <nav style={style} className="navbar navbar-expand-lg bg-body ">
+    <nav className="navbar navbar-expand-lg bg-body ">
       <div className="container-fluid ">
         <Link className="navbar-brand" href="#" to="/">
           <img

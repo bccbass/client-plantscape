@@ -1,13 +1,7 @@
-import react, { useEffect, useContext, createContext } from "react";
-import Login from './Login.jsx';
-import Home from './Home.jsx'
-import { useNavigate } from 'react-router-dom';
-import { getUser, getPlants, fetchUserData } from './loginfunctions.js'
-import samplePlants from './samplePlants.jsx'
+import { useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
+import { getUser, getPlants } from './loginfunctions.js'
 
-
-
-    
 const Auth = ({user, setUser, plants, setPlants, children}) => {
     const navigate = useNavigate()
     useEffect(() => {

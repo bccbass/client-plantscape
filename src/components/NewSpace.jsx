@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import React, { useState } from "react"
+import { useNavigate } from "react-router"
 import { updateUser } from './helperfuncs.js'
 
 const NewSpace = ({ user, setUser }) => {
@@ -7,37 +7,47 @@ const NewSpace = ({ user, setUser }) => {
     name: "",
     notes: "",
     location: "",
-  });
+  })
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
+  // These methods will update the state properties
   function updateForm(value) {
     return setForm((prev) => {
-      return { ...prev, ...value };
-    });
+      return { ...prev, ...value }
+    })
   }
 
+  // This function will handle the submission
   async function onSubmit(e, navDestination) {
-    e.preventDefault();
+    e.preventDefault()
 
+    // Variable to store details of the user's new Space
     const newSpace = {
       name: form.name,
       notes: form.notes,
       location: form.location,
     }
     
+    // Error handling logic to prevent duplicate/identical Spaces being created
     if (user.spaces.find((space) => space.name === newSpace.name)) {
       window.alert("That space already exists!")
     } else {
-      let userCopy = { ...user };
-      userCopy.spaces.push(newSpace);
-      setUser(userCopy);
+      // Create a copy of the user object to modify
+      let userCopy = { ...user }
+      // Add the new Space to the copy
+      userCopy.spaces.push(newSpace)
+      // Call the setUser function to update the user state to the newly created copy
+      setUser(userCopy)
+      // Reset the state of the form
       setForm({ name: "", notes: "", location: "" })
     }
+    // Call the updateUser function, which sends a patch request to modify the user record in the database
     updateUser(user)
     navigate(navDestination)
   }
 
+  // This following section will display the form that takes the input from the user
   return (
     <div>
       <h3>Create New Space</h3>
@@ -100,7 +110,7 @@ const NewSpace = ({ user, setUser }) => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default NewSpace;
+export default NewSpace

@@ -1,11 +1,7 @@
 import './Login.css'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
-import AltNavBar from './AltNavBar'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
 import apiURL from './getAPI.js'
-
 
 function Register() {
   const [form, setForm] = useState({
@@ -28,6 +24,7 @@ function Register() {
   async function onSubmit(e) {
     e.preventDefault()
 
+    // When a post request is sent to the register url, we'll add a new record to the database
     const newUser = { ...form }
 
     await fetch(`${apiURL}/users/register`, {
@@ -42,10 +39,13 @@ function Register() {
       return
     })
 
+    // Reset the state of the form
     setForm({ firstName: "", lastName: "", email: "", password: "" })
+    // Employ useNavigate() to simulate going to /login page
     navigate("/login")
   }
 
+  // The following section will display the form that takes the input from the user
   return (<>
     <div>
       <h3>Welcome to Plantscape</h3>

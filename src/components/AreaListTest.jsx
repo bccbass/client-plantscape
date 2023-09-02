@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { upperCaser } from "./helperfuncs.js";
 import Area from "./Area.jsx";
 import Dropdown from "react-bootstrap/Dropdown";
 

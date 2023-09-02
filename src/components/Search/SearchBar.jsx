@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import apiURL from "../getAPI.js";
+import React, { useState } from "react"
+import apiURL from "../getAPI.js"
 
 const SearchBar = ({ searchResults, setSearchResults }) => {
-  const [query, setQuery] = useState([]);
-  const [submittedQuery, setSubmittedQuery] = useState('');
+  const [query, setQuery] = useState([])
+  const [submittedQuery, setSubmittedQuery] = useState('')
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user"))
 
   let submittedQueryValue = 'hold2'
 
@@ -15,13 +15,13 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${user.token}`,
       },
-    });
-    const parsedResult = await result.json();
+    })
+    const parsedResult = await result.json()
     const filteredResult = parsedResult
       .filter((el) => el.common_name.includes(query))
-      .slice(0, 6);
-    setSearchResults(filteredResult);
-  };
+      .slice(0, 6)
+    setSearchResults(filteredResult)
+  }
 
   return (
     <>
@@ -67,7 +67,7 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar

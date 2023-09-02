@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Loading from './Loading.jsx'
-import {  retrieveToken, storeToken, getUser} from './loginfunctions.js'
-import { redirect, useNavigate } from 'react-router-dom'
+import {  retrieveToken, storeToken} from './loginfunctions.js'
+import { useNavigate } from 'react-router-dom'
 
 function Login({setUser}) {
   const [email, setEmail] = useState("")
@@ -13,7 +13,6 @@ function Login({setUser}) {
   let [clicked, setClicked] = useState (false)
   const navigate = useNavigate()
   let message = ''
-
 
   function validateForm() {
     return email.length > 0 && password.length > 0

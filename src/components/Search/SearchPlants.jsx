@@ -11,21 +11,15 @@ const style = {
     margin: '2rem',
 }
 
-
-
-
 const SearchPlants = ({user, setUser, setQuerySelection, orientation}) => {
   const [searchResults, setSearchResults] = useState(false);
 
-
-
-    
-    return <>
-    <div >
-        <SearchBar searchResults={searchResults} setSearchResults={setSearchResults}/>
-        <SearchResultList searchResults={searchResults} user={user} setUser={setUser} setQuerySelection={setQuerySelection} orientation={orientation}/> 
-        </div>
-    </>    
+  return <>
+  <div >
+    <SearchBar searchResults={searchResults} setSearchResults={setSearchResults}/>
+    <SearchResultList searchResults={searchResults} user={user} setUser={setUser} setQuerySelection={setQuerySelection} orientation={orientation}/> 
+  </div>
+  </>    
   }
 
   export default SearchPlants

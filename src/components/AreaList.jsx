@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import Area from "./Area.jsx"
 
-
 const style = {
   maxWidth: '750px',
   display: 'flex',

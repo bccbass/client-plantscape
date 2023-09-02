@@ -1,3 +1,21 @@
+.navbar {
+  margin-bottom: 3rem;
+  }
+
+.container {
+  color: grey;
+  width: 18rem;
+}
+
+a {
+  color: grey;
+  text-decoration: none;
+}
+
+.addSpace {
+ color: rgb(3, 60, 3)
+}
+
 .Title {
   box-sizing: border-box;
   width: 100%;

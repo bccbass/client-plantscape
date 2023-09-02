@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from "react";
-import PlantPreview from "./PlantPreview.jsx";
+import React, {useEffect, useState} from "react"
 import {upperCaser} from '../helperfuncs.js'
-
 
 const SearchResultList = ({searchResults, setQuerySelection, orientation}) => {
 
@@ -22,8 +20,8 @@ const listStyle = orientation ? orientation : 'list-group'
                 className="btn btn-success opacity-50 "
                 style={{padding:'.2rem .5rem', fontSize:'.9rem'}}
                 onClick={(e) => {
-                  e.preventDefault();
-                  setQuerySelection(res);
+                  e.preventDefault()
+                  setQuerySelection(res)
                 }}
               
               >
@@ -33,7 +31,7 @@ const listStyle = orientation ? orientation : 'list-group'
           ))}
       </ul>
     </>
-  );
-};
+  )
+}
 
-export default SearchResultList;
+export default SearchResultList
