@@ -42,7 +42,7 @@ const NavBar = () => {
               Home
             </Link>
             <Link className="nav-link" href="#" to="/space">
-              My Garden
+              My Spaces
             </Link>
             <Link className="nav-link" href="#" to="/myplants">
               My Plants

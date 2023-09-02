@@ -14,7 +14,7 @@ const style = {
 
 
 
-const SearchPlants = ({user, setUser, setQuerySelection}) => {
+const SearchPlants = ({user, setUser, setQuerySelection, orientation}) => {
   const [searchResults, setSearchResults] = useState(false);
 
 
@@ -23,7 +23,7 @@ const SearchPlants = ({user, setUser, setQuerySelection}) => {
     return <>
     <div >
         <SearchBar searchResults={searchResults} setSearchResults={setSearchResults}/>
-        <SearchResultList searchResults={searchResults} user={user} setUser={setUser} setQuerySelection={setQuerySelection}/> 
+        <SearchResultList searchResults={searchResults} user={user} setUser={setUser} setQuerySelection={setQuerySelection} orientation={orientation}/> 
         </div>
     </>    
   }

@@ -2,7 +2,7 @@ import React from "react";
 import { updateUser } from "../helperfuncs.js";
 import apiURL from "../getAPI";
 
-const styles = { maxWidth: "340px", color: "grey" };
+const styles = { width: '300px', color: "grey" };
 
 
 
