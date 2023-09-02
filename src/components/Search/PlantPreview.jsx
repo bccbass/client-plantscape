@@ -1,30 +1,51 @@
-import React from "react"
-import { updateUser } from "../helperfuncs.js"
+import React from "react";
+import SearchResultList from "./SearchResultList.jsx";
 
-const styles = { width: '300px', color: "grey" }
+import { updateUser } from "../helperfuncs.js";
 
-const PlantPreview = ({ plant, user, setUser }) => {
+const styles = { width: "300px", color: "grey" };
+
+const PlantPreview = ({
+  plant,
+  user,
+  setUser,
+  setActive,
+  searchResults,
+  setQuerySelection,
+}) => {
   const handleOnClick = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!user.plants.includes(plant.id)) {
-    let userCopy = { ...user }
-    userCopy.plants.push(plant.id)
-    setUser(userCopy)
-  }
-  updateUser(user)
-  }
+      let userCopy = { ...user };
+      userCopy.plants.push(plant.id);
+      setUser(userCopy);
+    }
+    updateUser(user);
+  };
+
+  const handleBackToSearch = (e) => {
+    setActive(
+      <SearchResultList
+        searchResults={searchResults}
+        user={user}
+        setUser={setUser}
+        setQuerySelection={setQuerySelection}
+        setActive={setActive}
+      />
+    );
+  };
   return (
-  <>
+    <>
       <div className="card mb-3" style={styles}>
         <div className="row g-0">
-          <div className="col-md-4">
             <img
               src={plant.default_image.original_url}
               className="img-fluid rounded-start"
               alt="..."
             />
-          </div>
-          <div className="col-md-8">
+     <span className="">
+          <em> Search Preview </em>
+        </span>
             <div className="card-body">
               <h5 className="card-title">{plant.common_name}</h5>
               <p className="card-text">
@@ -34,19 +55,18 @@ const PlantPreview = ({ plant, user, setUser }) => {
               </p>
 
               <p className="card-text">Sunlight: {plant.sunlight.join(", ")}</p>
-              <button
-                className="btn btn-success"
-                onClick={handleOnClick}
-              >
+              <button className="btn btn-success py-1" onClick={handleOnClick}>
                 Add Plant
               </button>
             </div>
-            
-          </div>
         </div>
-        <span className="mt-3"><em> Search Preview </em></span>
+   
+        <button className="btn btn-success mt-3 py-1" onClick={handleBackToSearch}>
+          Back to Search Results
+        </button>
       </div>
-    </>)
-}
+    </>
+  );
+};
 
-export default PlantPreview
+export default PlantPreview;

@@ -27,13 +27,11 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
     <>
       <form
         style={{ maxWidth: '250px' }}
-        className="input-group mb-3 mt-2"
+        className="input-group m-4"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(submittedQuery, 'preupdate')
           setSubmittedQuery(query)
           setQuery('')
-          console.log(submittedQuery,'post set')
           queryPlants(query);
         }}
       >

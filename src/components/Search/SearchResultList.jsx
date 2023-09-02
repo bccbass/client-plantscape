@@ -3,6 +3,8 @@ import {upperCaser} from '../helperfuncs.js'
 
 const SearchResultList = ({searchResults, setQuerySelection, orientation}) => {
 
+
+
 const listStyle = orientation ? orientation : 'list-group'
   return (
     <>
