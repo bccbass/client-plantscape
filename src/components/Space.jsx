@@ -14,7 +14,7 @@ const Space = ({ user, setUser, space, plants, spaceIndex }) => {
   }
 
   const deleteSpace = () => {
-    const indexOf = user.spaces.findIndex((space) => space._id)
+    const indexOf = user.spaces.findIndex(spaces => spaces._id === space._id)
     user.spaces.splice(indexOf, 1)
     updateUser(user)
     navigate("/")
