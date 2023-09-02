@@ -6,7 +6,6 @@ import {upperCaser} from '../helperfuncs.js'
 const SearchResultList = ({searchResults, setQuerySelection, orientation}) => {
 
 const listStyle = orientation ? orientation : 'list-group'
-console.log(orientation, 'liststyle')
   return (
     <>
       {(searchResults && searchResults[0]) && <h6 className="text-secondary"><em>Search results...</em></h6>}
