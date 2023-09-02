@@ -1,52 +1,56 @@
-import React, { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import SearchPlants from "../Search/SearchPlants.jsx"
-import { upperCaser, updateUser } from "../helperfuncs.js"
-import "./AddPlants.css"
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import SearchPlants from "../Search/SearchPlants.jsx";
+import { upperCaser, updateUser } from "../helperfuncs.js";
+import "./AddPlants.css";
 
 const AddPlants = ({ user, setUser, area, space }) => {
-  const navigate = useNavigate()
-  const [querySelection, setQuerySelection] = useState()
-  const [thisArea, setThisArea] = useState()
-  const [newPlants, setNewPlants] = useState([])
+  const navigate = useNavigate();
+  const [querySelection, setQuerySelection] = useState();
+  const [thisArea, setThisArea] = useState();
+  const [newPlants, setNewPlants] = useState([]);
+  const [searchResults, setSearchResults] = useState();
+  // const [active, setActive] = useState()
 
   useEffect(() => {
     if (querySelection && !newPlants.includes(querySelection)) {
-      setNewPlants([...newPlants, querySelection])
+      setNewPlants([...newPlants, querySelection]);
     }
-  }, [querySelection])
+  }, [querySelection]);
 
   useEffect(() => {
     let spaceFromUser =
-      user?.spaces && user.spaces.filter((el) => el.name == area.space)[0]
+      user?.spaces && user.spaces.filter((el) => el.name == area.space)[0];
     let areaFromUser =
       spaceFromUser?.areas &&
-      spaceFromUser.areas.filter((el) => el.name == area.name)[0]
-    setThisArea(areaFromUser)
+      spaceFromUser.areas.filter((el) => el.name == area.name)[0];
+    setThisArea(areaFromUser);
   }, [user]);
 
   const handleAddPlantsClick = () => {
-    let newPlantsIdArray = newPlants.map((el) => el.id)
+    let newPlantsIdArray = newPlants.map((el) => el.id);
     let spaceFromUser =
-      user?.spaces && user.spaces.filter((el) => el.name == area.space)[0]
+      user?.spaces && user.spaces.filter((el) => el.name == area.space)[0];
     let areaFromUser =
       spaceFromUser?.areas &&
-      spaceFromUser.areas.filter((el) => el.name == area.name)[0]
-    setThisArea(areaFromUser)
-    areaFromUser.plants = newPlantsIdArray
-    setUser(user.plants = [...new Set([...user.plants, ...newPlantsIdArray])])
+      spaceFromUser.areas.filter((el) => el.name == area.name)[0];
+    setThisArea(areaFromUser);
+    areaFromUser.plants = newPlantsIdArray;
+    setUser(
+      (user.plants = [...new Set([...user.plants, ...newPlantsIdArray])])
+    );
 
-    setUser(user)
-    updateUser(user)
-    navigate("/")
-  }
+    setUser(user);
+    updateUser(user);
+    navigate("/");
+  };
 
   const handleDeletePlant = (e) => {
     const removeTargetPlant = newPlants.filter(
       (el) => el.common_name != e.target.value
-    )
-    setNewPlants(removeTargetPlant) // delete
-  }
+    );
+    setNewPlants(removeTargetPlant); // delete
+  };
 
   return (
     <>
@@ -59,17 +63,17 @@ const AddPlants = ({ user, setUser, area, space }) => {
               user={user}
               setUser={setUser}
               setQuerySelection={setQuerySelection}
-              orientation='list-group-horizontal'
+              orientation="list-group-horizontal"
+              searchResults={searchResults}
+              setSearchResults={setSearchResults}
             />
-            {/* 
-             {console.log('query', querySelection)}
-             {console.log('area', area)} */}
-            {/* {console.log(user.spaces[2].areas)} */}
 
             {newPlants.length > 0 && (
               <div>
                 <div className="card-title mt-3">
-                  <h5 className="mb-0 text-secondary" >New plants for {area.name}!</h5>
+                  <h5 className="mb-0 text-secondary">
+                    New plants for {area.name}!
+                  </h5>
                   <p className="mt-0 text-secondary">click to remove a plant</p>
                   {newPlants.map((el) => (
                     <button

@@ -1,52 +1,50 @@
-import React, { useState } from "react"
-import { updateUser } from "../helperfuncs.js"
+import React, { useState } from "react";
+import { updateUser } from "../helperfuncs.js";
 
 const NewAreaForm = ({ user, setUser, setArea, setFormSubmit }) => {
-
   const [form, setForm] = useState({
     name: "",
     notes: "",
     space: "",
-  })
+  });
 
   function updateForm(value) {
     return setForm((prev) => {
-      return { ...prev, ...value }
-    })
+      return { ...prev, ...value };
+    });
   }
 
   async function onSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    let index
-    let userCopy
+    let index;
+    let userCopy;
 
     for (let i of user.spaces) {
       if (i.areas.find((area) => area.name === form.name)) {
         window.alert("That area already exists");
       } else {
-
-        userCopy = { ...user }
+        userCopy = { ...user };
         index = userCopy.spaces.findIndex(
           (spaces) => spaces.name === form.space
         );
-            setArea({space: form.space, name: form.name})
-            setFormSubmit(true)
+        setArea({ space: form.space, name: form.name });
+        setFormSubmit(true);
       }
     }
 
     let newArea = {
       name: form.name,
       notes: form.notes,
-      plants: []
-    }
+      plants: [],
+    };
 
-    userCopy.spaces[index].areas.push(newArea)
-    setUser(userCopy)
-    setForm({ name: "", notes: "", space: "" })
+    userCopy.spaces[index].areas.push(newArea);
+    setUser(userCopy);
+    setForm({ name: "", notes: "", space: "" });
   }
 
-  updateUser(user)
+  updateUser(user);
 
   return (
     <div>
@@ -90,7 +88,7 @@ const NewAreaForm = ({ user, setUser, setArea, setFormSubmit }) => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default NewAreaForm
+export default NewAreaForm;

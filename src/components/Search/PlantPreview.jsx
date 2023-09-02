@@ -38,30 +38,33 @@ const PlantPreview = ({
     <>
       <div className="card mb-3" style={styles}>
         <div className="row g-0">
-            <img
-              src={plant.default_image.original_url}
-              className="img-fluid rounded-start"
-              alt="..."
-            />
-     <span className="">
-          <em> Search Preview </em>
-        </span>
-            <div className="card-body">
-              <h5 className="card-title">{plant.common_name}</h5>
-              <p className="card-text">
-                <small className="text-body-secondary">
-                  {plant.scientific_name}
-                </small>
-              </p>
+          <img
+            src={plant.default_image.original_url}
+            className="img-fluid rounded-start"
+            alt="..."
+          />
+          <span className="">
+            <em> Search Preview </em>
+          </span>
+          <div className="card-body">
+            <h5 className="card-title">{plant.common_name}</h5>
+            <p className="card-text">
+              <small className="text-body-secondary">
+                {plant.scientific_name}
+              </small>
+            </p>
 
-              <p className="card-text">Sunlight: {plant.sunlight.join(", ")}</p>
-              <button className="btn btn-success py-1" onClick={handleOnClick}>
-                Add Plant
-              </button>
-            </div>
+            <p className="card-text">Sunlight: {plant.sunlight.join(", ")}</p>
+            <button className="btn btn-success py-1" onClick={handleOnClick}>
+              Add Plant
+            </button>
+          </div>
         </div>
-   
-        <button className="btn btn-success mt-3 py-1" onClick={handleBackToSearch}>
+
+        <button
+          className="btn btn-success mt-3 py-1"
+          onClick={handleBackToSearch}
+        >
           Back to Search Results
         </button>
       </div>

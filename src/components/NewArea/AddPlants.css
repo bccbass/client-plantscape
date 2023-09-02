@@ -1,14 +1,13 @@
 .badge {
-    color: rgb(255, 255, 255);
-    padding: .5rem;
-    background-color: rgb(1, 130, 76);
+  color: rgb(255, 255, 255);
+  padding: 0.5rem;
+  background-color: rgb(1, 130, 76);
 
-    border: .2px solid grey;
-    transition: 150ms ease-in-out;
+  border: 0.2px solid grey;
+  transition: 150ms ease-in-out;
 }
 
-
 .badge:hover {
-    color: white;
-    background-color: red;
+  color: white;
+  background-color: red;
 }
