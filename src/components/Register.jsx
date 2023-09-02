@@ -2,6 +2,7 @@ import './Login.css'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import apiURL from './getAPI.js'
+import Button from 'react-bootstrap/Button'
 
 function Register() {
   const [form, setForm] = useState({
@@ -48,7 +49,7 @@ function Register() {
   // The following section will display the form that takes the input from the user
   return (<>
     <div>
-      <h3>Welcome to Plantscape</h3>
+      <h3 class="welcome">Welcome to Plantscape</h3>
       <p>Your plants are going to love you 🍀</p>
       <form onSubmit={onSubmit}>
         <div className="form-group">
@@ -95,12 +96,10 @@ function Register() {
             onChange={(e) => updateForm({ password: e.target.value })}
           />
         </div>
-        <div className="form-group">
-          <input
-            type="submit"
-            value="Register"
-            className="btn btn-success"
-          />
+        <div className="form-group" >
+          <Button className="btn btn-success" block="true" size="lg" type="submit" >
+            Register
+          </Button>
         </div>
       </form>
     </div>
