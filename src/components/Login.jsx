@@ -1,10 +1,12 @@
 import './Login.css'
 import React, { useState, useEffect } from 'react'
+import Alert from 'react-bootstrap/Alert'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Loading from './Loading.jsx'
 import {  retrieveToken, storeToken} from './loginfunctions.js'
 import { useNavigate } from 'react-router-dom'
+// import Alert from './Alert.jsx'
 
 function Login({setUser}) {
   const [email, setEmail] = useState("")

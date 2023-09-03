@@ -14,6 +14,8 @@ const retrieveToken = async (setUser, setClicked, creds) => {
       if (user.id) {
         setClicked(true);
         setUser(user);
+      } else {
+        alert("User not found");
       }
     });
 };

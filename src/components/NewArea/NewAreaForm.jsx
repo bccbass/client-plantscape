@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { updateUser } from "../helperfuncs.js";
 
-const NewAreaForm = ({ user, setUser, setArea, setFormSubmit }) => {
+const NewAreaForm = ({ user, setUser, setArea, setFormSubmit}) => {
   const [form, setForm] = useState({
     name: "",
     notes: "",
@@ -23,6 +23,7 @@ const NewAreaForm = ({ user, setUser, setArea, setFormSubmit }) => {
     for (let i of user.spaces) {
       if (i.areas.find((area) => area.name === form.name)) {
         window.alert("That area already exists");
+        break
       } else {
         userCopy = { ...user };
         index = userCopy.spaces.findIndex(
@@ -49,7 +50,7 @@ const NewAreaForm = ({ user, setUser, setArea, setFormSubmit }) => {
   return (
     <div>
       <h3>Create New Area</h3>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} validate>
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
@@ -58,6 +59,7 @@ const NewAreaForm = ({ user, setUser, setArea, setFormSubmit }) => {
             id="name"
             value={form.name}
             onChange={(e) => updateForm({ name: e.target.value })}
+            required
           />
         </div>
         <div className="form-group">
@@ -75,11 +77,14 @@ const NewAreaForm = ({ user, setUser, setArea, setFormSubmit }) => {
           className="form-select form-select-me"
           aria-label="Small select example"
           id="space"
+          required
+          
         >
-          <option value="Select Space"> -- Select Space -- </option>
+          <option value="" disable selected > -- Select Space -- </option>
           {(user?.spaces || []).map((space, index) => (
-            <option key={index} value={space.name}>
+            <option key={index} value={space.name} required>
               {space.name}
+            
             </option>
           ))}
         </select>
