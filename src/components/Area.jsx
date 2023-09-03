@@ -5,10 +5,10 @@ import { updateUser } from './helperfuncs.js'
 
 const styles = { maxWidth: "540px", color: "grey" };
 
+// Passes in the user, area and space objects and plants array to render the Space component
+// Plants array is passed in to render the nested PlantList component
 const Area = ({ user, area, plants, space }) => {
-  // could also do a use effect where the filtering will take place (i.e. wrapping the filter in a useEffect )
-  // set the result of the filter to state
-  // pass the state into plantlist
+
   const [showComponent, setShowComponent] = useState(false)
   const navigate = useNavigate()
 
@@ -30,22 +30,15 @@ const Area = ({ user, area, plants, space }) => {
     <>
       <div className="card m-3" style={styles}>
         <div className="row g-0">
-          {/* <div className="col-md-4">
-      <img src={area.imgUrl} className="img-fluid rounded-start" alt="image of selected area goes here"/>
-    </div> */}
             <div className="card-body">
               <h3 className="card-title">{area.name}</h3>
-              {/* <p className="card-text"><small className="text-body-secondary">{plant.scientific_name}</small></p> */}
+
 
               <p className="card-text">{area.notes}</p>
             </div>
             <div>
             <PlantList plants={areaPlants} setActive={setActive} />
             </div>
-            {/* <div className="form-group">
-              <input type="submit" onClick={handleClick} value={`Edit ${area.name}`} className="btn btn-primary" />
-              {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
-            </div> */}
             <div className="form-group">
               <input type="submit" onClick={deleteArea} value={`Delete ${area.name}`} className="m-2 btn btn-danger" />
             </div>

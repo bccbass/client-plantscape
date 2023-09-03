@@ -10,7 +10,7 @@ const style = {
 };
 
 // Pass in the user and space objects, and the areas and plants arrays to render a drop-down menu of the user's areas
-// Passes a selected area and the plants array to render the nested Area component
+// Passes in the user, space, and selected area objects and the plants array to render the nested Area component
 const AreaList = ({ user, areas, plants, space }) => {
   const [areaSelect, setAreaSelect] = useState();
 
