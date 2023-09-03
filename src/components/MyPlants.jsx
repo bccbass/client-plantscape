@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import SearchPlants from "./Search/SearchPlants.jsx";
 import PlantList from "./PlantList.jsx";
 import PlantPreview from "./Search/PlantPreview.jsx";
-import NavBar from "./NavBar.jsx";
 
 const style = {
   display: "flex",
-  // margin: "2rem",
-
   color: "grey",
 };
 

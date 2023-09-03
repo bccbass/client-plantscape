@@ -13,17 +13,23 @@ const PlantPreview = ({
   searchResults,
   setQuerySelection,
 }) => {
+
   const handleOnClick = (e) => {
     e.preventDefault();
+  // Check if plant to add is already in users plants array.
     if (!user.plants.includes(plant.id)) {
+  // If not, add plant, update local user object
       let userCopy = { ...user };
       userCopy.plants.push(plant.id);
       setUser(userCopy);
     }
+    // call updateUser function to make POST request to backend with new user object to be updated in the database
     updateUser(user);
   };
 
+  // handle exiting plant preview and rendering search results list
   const handleBackToSearch = (e) => {
+    // set active component to mount searchResults component
     setActive(
       <SearchResultList
         searchResults={searchResults}
