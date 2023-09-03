@@ -1,6 +1,7 @@
 import React from 'react'
 import Title from './Title.jsx'
 
+// Site description/overview component
 function About() {
   return (
     <>
