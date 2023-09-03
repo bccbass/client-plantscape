@@ -47,15 +47,13 @@ const storeToken = (token) => {
 
 // Request to backend for User document from database with user credentials from local storage 
 const getUser = async (setter) => {
-  // retrieve user object from Local Storage
-  const user = JSON.parse(localStorage.getItem("user"));
   // Make request to backend with user id as param
   const res = await fetch(`${apiURL}/users/${user.id}`, {
     headers: {
       //  specify JSON req/res 
       "Content-Type": "application/json", 
       // supply bearer token from locally stored user obj for backend authentication
-      Authorization: `Bearer ${user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.user).token}`,
     },
   });
   const data = await res.json();
