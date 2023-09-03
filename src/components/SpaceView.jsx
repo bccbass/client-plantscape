@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 
 const SpaceView = ({space}) => {
-  console.log(space) // REMEMBER TO REMOVE THIS LINE!
   return space ? <>
     <h1>Areas in {space.name}</h1>
     <p>This is the view of all the areas for the space called {space.name}</p>

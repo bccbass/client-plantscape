@@ -4,7 +4,9 @@ import EditSpace from './EditSpace.jsx'
 import { useNavigate } from 'react-router-dom'
 import AreaList from './AreaList.jsx'
 
-const Space = ({ user, setUser, space, plants, spaceIndex }) => {
+// Passes in the user, setUser, and space objects and plants array to render the Space component
+// User, setUser, and space objects are passes in to the render the nested Edit Space and Delete Space button components
+const Space = ({ user, setUser, space, plants }) => {
   const navigate = useNavigate()
 
   const [showComponent, setShowComponent] = useState(false)
@@ -37,14 +39,6 @@ const Space = ({ user, setUser, space, plants, spaceIndex }) => {
       </div>
     </div>
     <AreaList space={space} user={user} areas={space.areas} plants={plants}/>
-{/* TEST moved EditSpace and DeleteSpace up and underneath Notes for the Space */}
-{/* <div className="form-group">
-  <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-success" />
-  {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
-</div>
-<div className="form-group">
-  <input type="submit" onClick={deleteSpace} value={`Delete ${space.name}`} className="btn btn-success" />
-</div> */}
   </>
 }
 

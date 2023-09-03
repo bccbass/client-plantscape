@@ -10,6 +10,8 @@ const style = {
   justifyContent: 'space-between'
 }
 
+// Pass in the user's spaces and plants arrays to render a list of buttons for the user's spaces
+// Passes a selected space and the plants array to the nested Space component
 const SpaceList = ({spaces, plants}) => {
     const [spaceSelect, setSpaceSelect] = useState();
     return (
@@ -39,7 +41,6 @@ const SpaceList = ({spaces, plants}) => {
             })}
           </div>
       )}
-      {/* {spaceSelect && < Space space={spaceSelect} plants={plants}/>} */}
       </div>
       {spaceSelect && < Space space={spaceSelect} plants={plants}/>}
     </>

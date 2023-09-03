@@ -12,12 +12,12 @@ import AltNavBar from "./AltNavBar.jsx";
 import Auth from "./Auth.jsx";
 import { Routes, Route, useParams } from "react-router-dom";
 import NotFound from "./NotFound.jsx";
-import SpaceSelectionAlt from "./SpaceSelectionAlt.jsx";
 import Space from "./Space";
 import Footer from "./Footer.jsx";
 import AddToPlantList from "./AddToPlantList";
 import About from "./About.jsx";
 import UserSettings from "./UserSettings.jsx";
+import SpaceSelection from "./SpaceSelection";
 
 function App() {
   // These useState objs should be refactored to utilize
@@ -113,7 +113,7 @@ function App() {
                 plants={plants}
                 setPlants={setPlants}
               >
-                <SpaceSelectionAlt user={user} plants={plants} />
+                <SpaceSelection user={user} plants={plants} />
               </Auth>
             }
           />

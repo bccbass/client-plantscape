@@ -9,6 +9,8 @@ const style = {
   justifyContent: "space-between",
 };
 
+// Pass in the user and space objects, and the areas and plants arrays to render a drop-down menu of the user's areas
+// Passes in the user, space, and selected area objects and the plants array to render the nested Area component
 const AreaList = ({ user, areas, plants, space }) => {
   const [areaSelect, setAreaSelect] = useState();
 
@@ -20,13 +22,11 @@ const AreaList = ({ user, areas, plants, space }) => {
             Sorry, no areas registered yet to this space. Nothing to display!
           </p>
         ) : (
-          // add link to the NewArea component here
           <>
             <Dropdown data-bs-theme="light">
               <Dropdown.Toggle
                 id="dropdown-button-dark-example1"
                 variant="secondary"
-                // style={{ backgroundColor: "#53835C" }}
                 className="btn btn-success"
               >
                 Select an Area
@@ -36,7 +36,6 @@ const AreaList = ({ user, areas, plants, space }) => {
                 {areas.map((area) => {
                   return (
                     <Dropdown.Item
-                      // style={{ backgroundColor: "#A2FFB3", color: "#426949" }}\
                       className="bg-success bg-opacity-25"
                       onClick={(e) => {
                         e.preventDefault();
