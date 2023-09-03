@@ -51,7 +51,7 @@ function Register() {
     <div>
       <h3 className="welcome">Welcome to Plantscape</h3>
       <p>Your plants are going to love you 🍀</p>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} >
         <div className="form-group">
           <label hidden htmlFor="firstName">First Name</label>
           <input
@@ -61,6 +61,7 @@ function Register() {
             id="firstName"
             value={form.firstName}
             onChange={(e) => updateForm({ firstName: e.target.value })}
+            required
           />
         </div>
         <div className="form-group">
@@ -72,17 +73,19 @@ function Register() {
             id="lastName"
             value={form.lastName}
             onChange={(e) => updateForm({ lastName: e.target.value })}
+            required
           />
         </div>
         <div className="form-group">
           <label hidden htmlFor="email">Email</label>
           <input
             placeholder="Email"
-            type="text"
+            type="email"
             className="form-control"
             id="email"
             value={form.email}
             onChange={(e) => updateForm({ email: e.target.value })}
+            required
           />
         </div>
         <div className="form-group">
@@ -94,6 +97,8 @@ function Register() {
             id="password"
             value={form.password}
             onChange={(e) => updateForm({ password: e.target.value })}
+            minLength={8}
+            required
           />
         </div>
         <div className="form-group" >

@@ -28,28 +28,27 @@ const Area = ({ user, area, plants, space }) => {
   const [active, setActive] = useState(false);
   return (
     <>
-      <div className="card mb-3" style={styles}>
+      <div className="card m-3" style={styles}>
         <div className="row g-0">
           {/* <div className="col-md-4">
       <img src={area.imgUrl} className="img-fluid rounded-start" alt="image of selected area goes here"/>
     </div> */}
-          <div className="col-md-8">
             <div className="card-body">
-              <h5 className="card-title">{area.name}</h5>
+              <h3 className="card-title">{area.name}</h3>
               {/* <p className="card-text"><small className="text-body-secondary">{plant.scientific_name}</small></p> */}
 
               <p className="card-text">{area.notes}</p>
             </div>
-
+            <div>
             <PlantList plants={areaPlants} setActive={setActive} />
+            </div>
             {/* <div className="form-group">
               <input type="submit" onClick={handleClick} value={`Edit ${area.name}`} className="btn btn-primary" />
               {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
             </div> */}
             <div className="form-group">
-              <input type="submit" onClick={deleteArea} value={`Delete ${area.name}`} className="btn btn-success" />
+              <input type="submit" onClick={deleteArea} value={`Delete ${area.name}`} className="m-2 btn btn-danger" />
             </div>
-          </div>
           {active}
         </div>
       </div>

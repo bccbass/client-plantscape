@@ -12,7 +12,7 @@ const updateUser = async (user) => {
       body: JSON.stringify(user)
     })
     .catch(error => {
-      window.alert(error)
+      console.error(error.message)
       return
     })
   }

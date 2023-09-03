@@ -6,7 +6,9 @@ import NavBar from "./NavBar.jsx";
 
 const style = {
   display: "flex",
-  margin: "2rem",
+  // margin: "2rem",
+
+  color: "grey",
 };
 
 const activeFrameStyle = {
@@ -39,6 +41,10 @@ const MyPlants = ({ plants, user, setUser }) => {
       <h1>{user.firstName}'s Plants</h1>
       <div style={style}>
         <div className="leftColumn">
+          <div className="mb-2 me-4">
+        <span className="">From my plants list...</span>
+        </div>
+          
           <PlantList plants={plants} setActive={setActive} />
           <SearchPlants
             user={user}
