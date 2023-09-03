@@ -12,6 +12,9 @@ const activeFrameStyle = {
   marginLeft: "2rem",
 };
 
+// Passes in the plants array, user object and setUser variable to render a nested PlantList of all of the user's plants
+// The plants, user and setUser props are passed to the nested SearchPlants and PlantPreview components 
+// to respectively render a plant search bar and preview card for a selected Plant
 const MyPlants = ({ plants, user, setUser }) => {
   const [searchResults, setSearchResults] = useState(false);
   const [active, setActive] = useState(false);
