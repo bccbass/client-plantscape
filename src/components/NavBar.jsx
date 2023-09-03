@@ -47,6 +47,9 @@ const NavBar = () => {
             <Link className="nav-link mx-2" href="#" to="/about">
               About
             </Link>
+            <Link className="nav-link mx-2" href="#" to="/usersettings">
+              Account
+            </Link>
             <div>
           <LogoutButton  />
         </div>
