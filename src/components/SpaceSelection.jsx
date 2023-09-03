@@ -1,38 +1,25 @@
-import React from 'react'
-import NavBar from './NavBar'
-import ListGroup from 'react-bootstrap/ListGroup'
-import Card from 'react-bootstrap/Card'
-import { Link } from 'react-router-dom'
+import React from "react"
+import SpaceList from "./SpaceList"
+import SpaceListAlt from "./SpaceListAlt"
 
-const SpaceSelection = ({user}) => { // MAYBE SHOULD JUST BE PASSING ONLY USER.SPACES AND NOT THE WHOLE USER OBJECT
-  console.log(user) // REMEMBER TO REMOVE THIS LINE!
-  return <>
-    <h1>{user.firstName}'s Spaces</h1>
-    {user && user?.spaces ? (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-      <Card.Body>
-        <Card.Title>Spaces</Card.Title>
-        <Card.Text>
-        Here are all of your spaces, {user.firstName} {user.lastName}!
-        </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-of-all-spaces">
-        <Card.Title>Spaces</Card.Title>
-        {user.spaces.map((space, index) => (
-          <ListGroup.Item>
-            <Link key={index} to={`/space/${index}`}>
-              {space.name}
-            </Link>
-          </ListGroup.Item>
-        ))}
-      </ListGroup>
-      <Link to={`/space/new`}>Add a new space</Link>
-    </Card>
-    )
-    :
-    <h1> Loading </h1>}
-  </>
+const style = {
+  display: "flex",
+  margin: "2rem",
+  maxWidth: "900px"
+}
+
+// 
+const SpaceSelection = ({  user, plants }) => {
+  return (
+    <>
+      <h1>{user.firstName}'s Spaces</h1>
+      <SpaceListAlt spaces={user.spaces} plants={plants} />
+      {/* <div>
+
+        <SearchPlants user={user} setUser={setUser}/>
+      </div> */}
+    </>
+  )
 }
 
 export default SpaceSelection
