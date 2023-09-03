@@ -70,8 +70,6 @@ const getUser = async (setter) => {
 // Takes array of plant ids from users plant list and request full plant documents from backend
 // which then makes request to Perenual API (botanical information API)
 const getPlants = async (setter, user, plants) => {
-  // Fetch user obj from local storage
-  const localUser = JSON.parse(localStorage.getItem("user"));
   // make request to backend to handle fetching plant data
   const res = await fetch(`${apiURL}/plants`, {
     method: "POST",
@@ -81,7 +79,7 @@ const getPlants = async (setter, user, plants) => {
     headers: {
       "Content-Type": "application/json",
       // User token from local storage for auth
-      Authorization: `Bearer ${localUser.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.user).token}`,
     },
   });
   const data = await res.json();
