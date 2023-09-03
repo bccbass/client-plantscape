@@ -8,41 +8,53 @@ const NewAreaForm = ({ user, setUser, setArea, setFormSubmit}) => {
     space: "",
   });
 
+  // These methods will update the state properties
   function updateForm(value) {
     return setForm((prev) => {
       return { ...prev, ...value };
     });
   }
 
+  // This function will handle the submission
   async function onSubmit(e) {
     e.preventDefault();
     let index;
     let userCopy;
+    // Loop to iterate over the user.spaces array
     for (let i of user.spaces) {
+      // The find method searches the array for the area name that matches the name entered in the form
       if (i.areas.find((area) => area.name === form.name)) {
+        // Popup to alert user that a duplicate cannot be created - a matching record was found in the database
         window.alert("That area already exists");
         return
       } else {
+        // Create a copy of the user data
         userCopy = { ...user };
+        // Find the index of the space index in the spaces array that matches the space name entered in the form
         index = userCopy.spaces.findIndex(
           (spaces) => spaces.name === form.space
         );
+        // Update the state of Area
         setArea({ space: form.space, name: form.name });
         setFormSubmit(true);
       }
     }
 
+    // Variable to store details of the user's new Area
     let newArea = {
       name: form.name,
       notes: form.notes,
       plants: [],
     };
 
+    // Push the newly created Area to the UserCopy variable
     userCopy.spaces[index].areas.push(newArea);
+    // Call the setUser function to update the user state to the newly created copy
     setUser(userCopy);
+    // Reset the state of the form
     setForm({ name: "", notes: "", space: "" });
   }
-
+  // Call the updateUser function, which sends a patch request to modify the user record in the database
   updateUser(user);
 
   return (
