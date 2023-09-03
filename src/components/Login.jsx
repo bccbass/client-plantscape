@@ -22,6 +22,7 @@ function Login({setUser}) {
 
   function handleSubmit(event) {
     event.preventDefault()
+    setClicked(true)
     retrieveToken(setToken, setClicked, {email, password })
   }
 
