@@ -10,7 +10,6 @@ const AddPlants = ({ user, setUser, area }) => {
   const [thisArea, setThisArea] = useState();
   const [newPlants, setNewPlants] = useState([]);
   const [searchResults, setSearchResults] = useState();
-  // const [active, setActive] = useState()
 
   // add to "new plants array" which is a holding area of selected plants
   // before committing them to an area and the global user.plants list
@@ -20,22 +19,6 @@ const AddPlants = ({ user, setUser, area }) => {
     }
   }, [querySelection]);
 
-  // Locates users areas and spaces from user object using passed in area object
-  // These components should probably be refactored to use useContext/useReducer as the prop passing is unwieldly
-
-  // useEffect(() => {
-  //   // checks if user spaces exists and locates corresponding space from user object
-  //   // sets to variable spaceFromUser
-  //   let spaceFromUser =
-  //     user?.spaces && user.spaces.filter((el) => el.name == area.space)[0];
-  //   // checks if user areas exists and locates corresponding area from user object
-  //   // sets to variable areFromUser
-  //   let areaFromUser =
-  //     spaceFromUser?.areas &&
-  //     spaceFromUser.areas.filter((el) => el.name == area.name)[0];
-  //   // stores located user area in stateful object thisArea
-  //   setThisArea(areaFromUser);
-  // }, [user]);
 
   // Adds selected plants to appropriate area and to user plants. U
   // Updates the User in the database
