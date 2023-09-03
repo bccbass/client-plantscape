@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from "../assets/anotherLogo.svg";
 
+// Returns a "page not found" message if the user visits a URL not specified in the App Routes
 const NotFound = () => {
   return (
     <>
