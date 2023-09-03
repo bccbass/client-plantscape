@@ -8,8 +8,8 @@ const style = {
   maxWidth: "900px"
 }
 
-// Parses in the user object and plants array to display the user's list of spaces
-// Passes in the user's spaces and plants array to the SpaceList component
+// Passes in the user object and plants array to display the user's list of spaces
+// Passes in the user's spaces and plants array to the nested SpaceList component
 const SpaceSelection = ({  user, plants }) => {
   return (
     <>

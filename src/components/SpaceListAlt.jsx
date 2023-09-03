@@ -9,6 +9,8 @@ const style = {
   justifyContent: "space-between",
 }
 
+// Pass in the user's spaces and plants arrays to render a drop-down menu of the user's spaces
+// Passes a selected space and the plants array to the nested Space component
 const SpaceListAlt = ({ spaces, plants }) => {
     const [spaceSelect, setSpaceSelect] = useState();
 
