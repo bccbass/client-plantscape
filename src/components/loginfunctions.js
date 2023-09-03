@@ -22,12 +22,14 @@ const retrieveToken = async (setUser, setClicked, creds) => {
       // Ensure response is a valid user object (and not error object)
       if (user.id) {
         // set clicked status to true for user feedback in client
-        setClicked(true);
         // set state with received user object resonse
         setUser(user);
       } else {
+        // change clicked state so loader doesn't remain on the screen
+        setClicked(false);
         // if unsuccessful log in attempt alert user in browser
         alert("Invalid user or password");
+
       }
     });
 };
