@@ -24,7 +24,6 @@ const PlantList = ({ plants, setActive }) => {
         <p>Sorry, no plants to display!</p>
       ) : (
           <div className="list-group">
-        <span className="mb-2">From my plants list...</span>
 
             {plants.map((plant) => {
               return (

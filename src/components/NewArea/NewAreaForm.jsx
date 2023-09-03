@@ -23,7 +23,7 @@ const NewAreaForm = ({ user, setUser, setArea, setFormSubmit}) => {
     for (let i of user.spaces) {
       if (i.areas.find((area) => area.name === form.name)) {
         window.alert("That area already exists");
-        break
+        return
       } else {
         userCopy = { ...user };
         index = userCopy.spaces.findIndex(

@@ -31,20 +31,20 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <Link
-              className="nav-link active"
+              className="nav-link active mx-2"
               aria-current="page"
               href="#"
               to="/"
             >
               Home
             </Link>
-            <Link className="nav-link" href="#" to="/space">
+            <Link className="nav-link mx-2" href="#" to="/space">
               My Spaces
             </Link>
-            <Link className="nav-link" href="#" to="/myplants">
+            <Link className="nav-link mx-2" href="#" to="/myplants">
               My Plants
             </Link>
-            <Link className="nav-link" href="#" to="/about">
+            <Link className="nav-link mx-2" href="#" to="/about">
               About
             </Link>
             <div>

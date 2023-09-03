@@ -26,7 +26,7 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
     <>
       <form
         style={{ maxWidth: '250px' }}
-        className="input-group m-4"
+        className="input-group mt-4"
         onSubmit={(e) => {
           e.preventDefault();
           setSubmittedQuery(query)
