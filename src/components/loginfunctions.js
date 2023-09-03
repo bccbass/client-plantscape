@@ -55,7 +55,7 @@ const getUser = async (setter) => {
       //  specify JSON req/res 
       "Content-Type": "application/json", 
       // supply bearer token from locally stored user obj for backend authentication
-      Authorization: `Bearer ${user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.user).token}`,
     },
   });
   const data = await res.json();
