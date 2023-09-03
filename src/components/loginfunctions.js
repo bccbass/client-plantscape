@@ -1,6 +1,6 @@
-import apiURL from "./getAPI.js"
+import apiURL from "./getAPI.js";
 
-const retrieveToken = async (setter, creds) => {
+const retrieveToken = async (setUser, setClicked, creds) => {
   await fetch(apiURL + "/users/login", {
     method: "POST",
     headers: {
@@ -10,36 +10,37 @@ const retrieveToken = async (setter, creds) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      const user = { ...data }
+      const user = { ...data };
       if (user.id) {
-        setter(user)
+        setClicked(true);
+        setUser(user);
       }
-    })
-}
+    });
+};
 
 const storeToken = (token) => {
   if (token.id) {
-    localStorage.setItem("user", JSON.stringify(token))
+    localStorage.setItem("user", JSON.stringify(token));
   }
-}
+};
 
 const getUser = async (setter) => {
-  const user = JSON.parse(localStorage.getItem("user"))
+  const user = JSON.parse(localStorage.getItem("user"));
   const res = await fetch(`${apiURL}/users/${user.id}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${user.token}`,
     },
-  })
-  const data = await res.json()
+  });
+  const data = await res.json();
   if (!data.firstName) {
-    setter(false)
+    setter(false);
   }
-  await setter(data)
+  await setter(data);
 };
 
 const getPlants = async (setter, user, plants) => {
-  const localUser = JSON.parse(localStorage.getItem("user"))
+  const localUser = JSON.parse(localStorage.getItem("user"));
   const res = await fetch(`${apiURL}/plants`, {
     method: "POST",
     mode: "cors",
@@ -48,24 +49,24 @@ const getPlants = async (setter, user, plants) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localUser.token}`,
     },
-  })
-  const data = await res.json()
+  });
+  const data = await res.json();
   if (data[0] && data[0].id) {
     if (user.plants.length > 0 && user.plants.length != plants.length) {
-      await setter(data)
+      await setter(data);
     }
   }
-}
+};
 
 const fetchUserData = async (user, setUser, plants, setPlants) => {
   if (!user.firstName) {
-    await getUser(setUser)
+    await getUser(setUser);
   }
   if (user) {
     if ((await user.plants.length) > 0) {
-      await getPlants(setPlants, user.plants)
+      await getPlants(setPlants, user.plants);
     }
   }
-}
+};
 
-export { storeToken, retrieveToken, getUser, getPlants, fetchUserData }
+export { storeToken, retrieveToken, getUser, getPlants, fetchUserData };

@@ -20,8 +20,7 @@ function Login({setUser}) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    setClicked(true)
-    retrieveToken(setToken, {email, password })
+    retrieveToken(setToken, setClicked, {email, password })
   }
 
   useEffect(() => {
@@ -40,6 +39,7 @@ function Login({setUser}) {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -48,6 +48,7 @@ function Login({setUser}) {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </Form.Group>
         <p>{message}</p>

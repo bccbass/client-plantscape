@@ -51,7 +51,7 @@ function Register() {
     <div>
       <h3 class="welcome">Welcome to Plantscape</h3>
       <p>Your plants are going to love you 🍀</p>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} noValidate>
         <div className="form-group">
           <label hidden htmlFor="firstName">First Name</label>
           <input
