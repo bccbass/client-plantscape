@@ -16,7 +16,7 @@ const Plant = ({plant}) => {
     <p className='m-3'><small className="text-body-secondary">Watering: {plant.watering}</small></p>
     <p className='m-3'><small className="text-body-secondary">Sunlight: {plant.sunlight.length > 0 ? plant.sunlight.join(', ') : plant.sunlight[0]}</small></p>
     <p className='m-3'><small className="text-body-secondary">{plant.drought_tolerant && "Drought Tolerant"}</small></p>
-    <p className='m-3'><small className="text-body-secondary">Maintenance: {plant.maintenance}</small></p>
+    {/* <p className='m-3'><small className="text-body-secondary">Maintenance: {plant.maintenance}</small></p> */}
 
     </div>
     <div className="col-md-8">
