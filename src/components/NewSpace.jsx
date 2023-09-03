@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router"
 import { updateUser } from './helperfuncs.js'
+import HomeButton from "./HomeButton.jsx"
 
 const NewSpace = ({ user, setUser }) => {
   const [form, setForm] = useState({
@@ -112,6 +113,9 @@ const NewSpace = ({ user, setUser }) => {
           <input type="submit" value="Add Space" className="btn btn-success" />
         </div>
       </form>
+      <div className="mt-1">
+      <HomeButton />
+    </div>
     </div>
   )
 }

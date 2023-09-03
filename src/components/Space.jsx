@@ -23,22 +23,17 @@ const Space = ({ user, setUser, space, plants, spaceIndex }) => {
   const styles = { maxWidth: '540px', color: 'grey'}
   
   return <>
-    <div className="card mb-3" style={styles}>
+    <div className="card m-3" style={styles}>
       <div className="row g-0">
-        <div className="col-md-4">
-          <img src={space.imgUrl} className="img-fluid rounded-start" alt="image of selected space goes here"/>
-        </div>
-        <div className="col-md-8">
           <div className="card-body">
             <h5 className="card-title">{space.name}</h5>
             <p className="card-text">{space.notes}</p>
             {/* the following 3 lines are the Edit Space and Delete Space buttons */}
-            <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-success" />
+            <input type="submit" onClick={handleClick} value={`Edit`} className="btn btn-success m-2" />
             {showComponent && <EditSpace space={space} user={user} setUser={setUser} />}
-            <input type="submit" onClick={deleteSpace} value={`Delete ${space.name}`} className="btn btn-success" />
+            <input type="submit" onClick={deleteSpace} value={`Delete`} className="btn btn-danger m-2" />
           </div>
           <button className="btn btn-success" onClick={e => {navigate('/newarea')}}>Add an Area to {space.name}</button>
-        </div>  
       </div>
     </div>
     <AreaList user={user} areas={space.areas} plants={plants}/>
