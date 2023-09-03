@@ -7,8 +7,8 @@ function UserSettings({ user }) {
     const result = confirm(`Are you sure you want to delete ${user.firstName}'s account?`)
     if (result) {
       await deleteUser(user)
-      localStorage.clear()
-    }
+      localStorage.removeItem(user)
+    } 
   }
 
   return (

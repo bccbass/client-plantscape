@@ -23,7 +23,9 @@ const deleteUser = async (user) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${JSON.parse(localStorage.user).token}`
-    }})
+    },
+    body: JSON.stringify(user)
+  })
   .catch(error => {
     console.error(error.message)
     return
