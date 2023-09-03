@@ -16,10 +16,8 @@ const NewAreaForm = ({ user, setUser, setArea, setFormSubmit}) => {
 
   async function onSubmit(e) {
     e.preventDefault();
-
     let index;
     let userCopy;
-
     for (let i of user.spaces) {
       if (i.areas.find((area) => area.name === form.name)) {
         window.alert("That area already exists");

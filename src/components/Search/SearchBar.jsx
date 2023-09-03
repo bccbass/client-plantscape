@@ -7,8 +7,9 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
 
   const user = JSON.parse(localStorage.getItem("user"))
 
-
+// Send request to backend with search query and set search results
   const queryPlants = async (query) => {
+    // Send query to backend to retrieve results 
     const result = await fetch(`${apiURL}/plants?q=${query}`, {
       headers: {
         "Content-Type": "application/json",
@@ -16,9 +17,13 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
       },
     })
     const parsedResult = await result.json()
+    // Search only for common_names matching query
+    // Future Stretch: add functionality to specify common vs scientific name search
     const filteredResult = parsedResult
       .filter((el) => el.common_name.includes(query))
+      // Only return first six matches
       .slice(0, 6)
+      // set search relts object to returned result
     setSearchResults(filteredResult)
   }
 
@@ -58,7 +63,7 @@ const SearchBar = ({ searchResults, setSearchResults }) => {
 
       <div>
         {searchResults && !searchResults.length && (
-          <h6 className="text-secondary">
+          <h6 className="text-secondary mt-2">
             <em>No results for "{submittedQuery}"</em>
           </h6>
         )}
