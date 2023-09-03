@@ -49,7 +49,7 @@ function Register() {
   // The following section will display the form that takes the input from the user
   return (<>
     <div>
-      <h3 class="welcome">Welcome to Plantscape</h3>
+      <h3 className="welcome">Welcome to Plantscape</h3>
       <p>Your plants are going to love you 🍀</p>
       <form onSubmit={onSubmit}>
         <div className="form-group">
