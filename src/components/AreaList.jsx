@@ -9,7 +9,7 @@ const style = {
   justifyContent: "space-between",
 };
 
-const AreaList = ({ user, areas, plants }) => {
+const AreaList = ({ user, areas, plants, space }) => {
   const [areaSelect, setAreaSelect] = useState();
 
   return (
@@ -52,7 +52,7 @@ const AreaList = ({ user, areas, plants }) => {
           </>
         )}
       </div>
-      {areaSelect && <Area user={user} area={areaSelect} plants={plants} />}
+      {areaSelect && <Area space={space} user={user} area={areaSelect} plants={plants} />}
     </>
   );
 };

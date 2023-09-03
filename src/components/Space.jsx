@@ -41,7 +41,7 @@ const Space = ({ user, setUser, space, plants, spaceIndex }) => {
         </div>  
       </div>
     </div>
-    <AreaList user={user} areas={space.areas} plants={plants}/>
+    <AreaList space={space} user={user} areas={space.areas} plants={plants}/>
 {/* TEST moved EditSpace and DeleteSpace up and underneath Notes for the Space */}
 {/* <div className="form-group">
   <input type="submit" onClick={handleClick} value={`Edit ${space.name}`} className="btn btn-success" />

@@ -5,7 +5,7 @@ import { updateUser } from './helperfuncs.js'
 
 const styles = { maxWidth: "540px", color: "grey" };
 
-const Area = ({ user, area, plants }) => {
+const Area = ({ user, area, plants, space }) => {
   // could also do a use effect where the filtering will take place (i.e. wrapping the filter in a useEffect )
   // set the result of the filter to state
   // pass the state into plantlist
@@ -17,8 +17,8 @@ const Area = ({ user, area, plants }) => {
   };
 
   const deleteArea = () => {
-    const indexOf = user.spaces.findIndex((space) => space._id)
-    const indexOfArea = user.spaces[indexOf].areas.findIndex((areas) => area._id)
+    const indexOf = user.spaces.findIndex((spaces) => spaces._id === space._id)
+    const indexOfArea = user.spaces[indexOf].areas.findIndex((areas) => areas._id === area._id)
     user.spaces[indexOf].areas.splice(indexOfArea, 1)
     updateUser(user);
     navigate("/");
