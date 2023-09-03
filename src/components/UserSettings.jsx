@@ -10,9 +10,10 @@ function UserSettings({ user }) {
     const result = confirm(`Are you sure you want to delete ${user.firstName}'s account?`)
     // Call the deleteUser function to remove the user record from the database
     if (result) {
-      localStorage.clear()
       await deleteUser(user)
-      navigate('/login')
+      localStorage.clear()
+
+      // navigate('/login')
     } 
   }
 
