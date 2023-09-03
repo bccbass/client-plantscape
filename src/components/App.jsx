@@ -17,10 +17,11 @@ import Space from "./Space";
 import Footer from "./Footer.jsx";
 import AddToPlantList from "./AddToPlantList";
 import About from "./About.jsx";
+import UserSettings from "./UserSettings.jsx";
 
 function App() {
-  // These useState objs should be refactored to utilize 
-  // useContext and useReducer as they are needed globally 
+  // These useState objs should be refactored to utilize
+  // useContext and useReducer as they are needed globally
   // and create a great deal of prop drilling.
   const [user, setUser] = useState({});
   const [plants, setPlants] = useState([]);
@@ -179,6 +180,19 @@ function App() {
           }
         />
         <Route path="/*" element={<NotFound />} />
+        <Route
+          path="/usersettings"
+          element={
+            <Auth
+              user={user}
+              setUser={setUser}
+              plants={plants}
+              setPlants={setPlants}
+            >
+              <UserSettings user={user} />
+            </Auth>
+          }
+        />
       </Routes>
       <Footer />
     </>
