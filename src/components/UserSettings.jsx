@@ -4,7 +4,7 @@ import { deleteUser } from './helperfuncs.js'
 function UserSettings({ user }) {
 
   async function onSubmit(e) {
-    deleteUser(user)
+    await deleteUser(user)
     localStorage.clear()
     return redirect('/login')
   }
