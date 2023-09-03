@@ -62,6 +62,7 @@ const NewSpace = ({ user, setUser }) => {
             id="name"
             value={form.name}
             onChange={(e) => updateForm({ name: e.target.value })}
+            required
           />
         </div>
         <div className="form-group">
@@ -75,7 +76,7 @@ const NewSpace = ({ user, setUser }) => {
             onChange={(e) => updateForm({ notes: e.target.value })}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group" >
           <div className="form-check form-check-inline">
             <input
               className="form-check-input"
@@ -85,6 +86,7 @@ const NewSpace = ({ user, setUser }) => {
               value="Indoor"
               checked={form.location === "Indoor"}
               onChange={(e) => updateForm({ location: e.target.value })}
+              required
             />
             <label htmlFor="locationIndoors" className="form-check-label">
               Indoor
@@ -99,6 +101,7 @@ const NewSpace = ({ user, setUser }) => {
               value="Outdoor"
               checked={form.location === "Outdoor"}
               onChange={(e) => updateForm({ location: e.target.value })}
+              required
             />
             <label htmlFor="locationOutdoor" className="form-check-label">
               Outdoor
