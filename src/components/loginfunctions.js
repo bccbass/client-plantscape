@@ -15,7 +15,7 @@ const retrieveToken = async (setUser, setClicked, creds) => {
         setClicked(true);
         setUser(user);
       } else {
-        alert("User not found");
+        alert("Invalid user or password");
       }
     });
 };
