@@ -4,9 +4,12 @@ import { deleteUser } from './helperfuncs.js'
 function UserSettings({ user }) {
 
   async function onSubmit(e) {
+    const result = confirm("Are you sure you want to delete this user account?")
+    if (result) {
     await deleteUser(user)
     localStorage.clear()
     return redirect('/login')
+    }
   }
 
   return (
