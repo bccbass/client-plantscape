@@ -24,16 +24,20 @@ const updateUser = async (user) => {
     })
   }
 
+// Make request to the backend to delete stored user document
 const deleteUser = async (user) => {
+  // Make DELETE request to backend
   await fetch(`${apiURL}/users/${user._id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      // Supply bearer token for authentication
       Authorization: `Bearer ${JSON.parse(localStorage.user).token}`
     },
     body: JSON.stringify(user)
   })
   .catch(error => {
+    // Handle errors
     console.error(error.message)
     return
   })

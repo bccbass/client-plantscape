@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import LogoutButton from "./LogoutButton.jsx"
 import logo from "../assets/anotherLogo.svg"
 
+// NavBar component using Bootstrap styling - Link is used for site navigation
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body ">
